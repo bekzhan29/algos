@@ -53,6 +53,6 @@ ll sum(ll v, ll l, ll r, ll x, ll y)
 	if(x<=l&&r<=y)
 		return tree[v];
 	ll mid=(l+r)/2;
-	push(v,l,r,mid)
+	push(v,l,r,mid);
 	return sum(v*2,l,mid,x,y)+sum(v*2+1,mid+1,r,x,y);
 }
