@@ -2,7 +2,6 @@
 Дерево отрезков сверху вниз
 - a[x] += y
 - sum(l, r)
-
 */
 ll tree[3*N+10];
 void build(ll v, ll l, ll r)
