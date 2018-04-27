@@ -11,7 +11,7 @@ void dijkstra()
 {
 	priority_queue<pair<ll,ll> >s;
 	for(ll i=1;i<=n;i++)
-		dist[i]=INF;
+		dist[i]=INF,w[i]=0;
 	dist[st]=0;
 	s.push({0,st});
 	for(;!s.empty();)
