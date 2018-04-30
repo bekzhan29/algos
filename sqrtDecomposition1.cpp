@@ -7,7 +7,7 @@ ll bl[N+10],len=320;
 void build()
 {
 	for(ll i=1;i<=n;i++)
-		b[i/len]+=a[i];
+		bl[i/len]+=a[i];
 }
 void upd(ll pos, ll k)
 {
