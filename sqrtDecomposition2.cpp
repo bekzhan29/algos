@@ -1,6 +1,6 @@
 /*
 Sqrt Decomposition
-- a[x] += y O(1)
+- upd(l,r)+=k O(sqrt(N))
 - sum(l,r) O(sqrt(N))
 */
 ll bl[N+10],zl[N+10],len=320;
