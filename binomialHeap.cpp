@@ -5,7 +5,16 @@
 - добавить элемент O(logN)
 - удалить минимум O(logN)
 */
-ll head,val[N+10],sib[N+10],son[N+10],par[N+10],sz[N+10];
+ll head[N+10],val[N+10],sib[N+10],son[N+10],par[N+10],cnt[N+10],sz;
+void print(ll head)
+{
+	while(head)
+	{
+		cout<<"("<<val[head]<<", "<<cnt[head]<<") - ";
+		head=sib[head];
+	}
+	cout<<endl;
+}
 ll uni(ll x, ll y)
 {
 	if(val[x]<val[y])
@@ -13,7 +22,7 @@ ll uni(ll x, ll y)
 	par[x]=y;
 	sib[x]=son[y];
 	son[y]=x;
-	sz[y]++;
+	cnt[y]++;
 	return y;
 }
 ll merge(ll x, ll y)
@@ -21,13 +30,13 @@ ll merge(ll x, ll y)
 	ll head=0,cur=0,last=0,next,go;
 	if(!x||!y)
 		return x?x:y;
-	if(sz[x]<sz[y])
+	if(cnt[x]<cnt[y])
 		head=cur=x,x=sib[x];
 	else
 		head=cur=y,y=sib[y];
 	while(x&&y)
 	{
-		if(sz[x]<sz[y])
+		if(cnt[x]<cnt[y])
 			sib[cur]=x,cur=x,x=sib[x];
 		else
 			sib[cur]=y,cur=y,y=sib[y];
@@ -41,7 +50,9 @@ ll merge(ll x, ll y)
 	{
 		if(sib[cur]>0)
 			next=sib[cur];
-		if(sz[cur]==sz[next]&&(sib[next]==0||sz[sib[next]]!=sz[next]))
+		else
+			break;
+		if(cnt[cur]==cnt[next]&&(sib[next]==0||cnt[sib[next]]!=cnt[next]))
 		{
 			go=sib[next];
 			cur=uni(cur,next);
@@ -65,4 +76,11 @@ ll getMin(ll head)
 		head=sib[head];
 	}
 	return ans;
+}
+ll add(ll head, ll x)
+{
+	sz++;
+	sib[sz]=son[sz]=par[sz]=cnt[sz]=0;
+	val[sz]=x;
+	return merge(head,sz);
 }
