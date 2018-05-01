@@ -48,11 +48,8 @@ ll merge(ll x, ll y)
 	cur=head;
 	while(cur)
 	{
-		if(sib[cur]>0)
-			next=sib[cur];
-		else
-			break;
-		if(cnt[cur]==cnt[next]&&(sib[next]==0||cnt[sib[next]]!=cnt[next]))
+		next=sib[cur];
+		while(next&&cnt[cur]==cnt[next]&&(sib[next]==0||cnt[sib[next]]!=cnt[next]))
 		{
 			go=sib[next];
 			cur=uni(cur,next);
@@ -61,6 +58,7 @@ ll merge(ll x, ll y)
 			else
 				head=cur;
 			sib[cur]=go;
+			next=go;
 		}
 		last=cur;
 		cur=sib[cur];
@@ -77,10 +75,37 @@ ll getMin(ll head)
 	}
 	return ans;
 }
-ll add(ll head, ll x)
+ll extractMin(ll &head)
+{
+	ll ans=val[head],cur=head,last=0,pos=head,prev=0;
+	while(cur)
+	{
+		if(ans>val[cur])
+			ans=val[cur],pos=cur,prev=last;
+		last=cur;
+		cur=sib[cur];
+	}
+	if(prev==0)
+		head=sib[head];
+	else
+		sib[prev]=sib[pos];
+	cur=son[pos];
+	ll nhead=0,next;
+	while(cur)
+	{
+		par[cur]=0;
+		next=sib[cur];
+		sib[cur]=nhead;
+		nhead=cur;
+		cur=next;
+	}
+	head=merge(head,nhead);
+	return ans;
+}
+void add(ll &head, ll x)
 {
 	sz++;
 	sib[sz]=son[sz]=par[sz]=cnt[sz]=0;
 	val[sz]=x;
-	return merge(head,sz);
+	head=merge(head,sz);
 }
