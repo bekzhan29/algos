@@ -1,6 +1,6 @@
 /*
 Персистентное дерево отрезков
-- a[x] += y	O(logN)
+- a[x] += y O(logN)
 - sum(l, r) в версии i O(logN)
 */
 ll a[N+10],root[N+10],sz;
