@@ -1,5 +1,5 @@
 /*
-Heavy-light Decomposition
+Heavy-Light Decomposition
 - a[x] += y O(logN)
 - max(x,y) O(log^2(N))
 */
