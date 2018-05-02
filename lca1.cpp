@@ -17,7 +17,7 @@ void dfs(ll x, ll par)
 			dfs(to,x);
 	tout[x]=tim;
 }
-ll lca(ll x, ll y)
+ll findLCA(ll x, ll y)
 {
 	ll lca=x;
 	for(ll i=16;i>=0;i--)
