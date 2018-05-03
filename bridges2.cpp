@@ -8,18 +8,18 @@ struct edge{
 }br[N+10];
 ll cnt,w[N+10],dep[N+10],up[N+10];
 vector<edge>v[N+10];
-void dfs(ll x, edge last, ll depth)
+void dfs(ll x, ll last, ll depth)
 {
 	dep[x]=up[x]=depth;
 	w[x]=1;
 	for(edge e:v[x])
 	{
-		if(e.ind==last.ind)
+		if(e.ind==last)
 			continue;
 		ll to=e.y;
 		if(!w[to])
 		{
-			dfs(to,e,depth+1);
+			dfs(to,e.ind,depth+1);
 			up[x]=min(up[x],up[to]);
 			if(up[to]>dep[x])
 				br[++cnt]=e;
