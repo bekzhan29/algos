@@ -31,5 +31,6 @@ void bpow(ll m)
 		for(ll i=1;i<=n;i++)
 			for(ll j=1;j<=n;j++)
 				a[i][j]=c[i][j];
+		m/=2;
 	}
 }
