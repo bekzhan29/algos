@@ -6,8 +6,8 @@
 ll tree[N+10];
 void add(ll pos, ll x)
 {
-	for(;pos<=n;pos=(i|(i+1)))
-		tree[i]+=x;
+	for(;pos<=n;pos=(pos|(pos+1)))
+		tree[pos]+=x;
 }
 ll sum(ll pos)
 {
