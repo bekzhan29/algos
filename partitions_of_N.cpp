@@ -1,3 +1,6 @@
+/*
+Количество разбиений числа N на слагаемые O(NsqrtN)
+*/
 #include <bits/stdc++.h>
 #include <iostream>
 #include <iomanip>
