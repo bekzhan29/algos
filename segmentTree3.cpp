@@ -3,7 +3,7 @@
 - a[x] += y
 - sum(l, r)
 */
-ll n1,tree[3*N+10];
+ll n1,tree[4*N];
 void build()
 {
 	n1=1;
