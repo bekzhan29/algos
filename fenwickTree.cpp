@@ -3,7 +3,7 @@
 - Сумма на отрезке O(logN)
 - a[x] += y O(logN)
 */
-ll tree[N+10];
+ll tree[N];
 void add(ll pos, ll x)
 {
 	for(;pos<=n;pos=(pos|(pos+1)))
@@ -16,7 +16,11 @@ ll sum(ll pos)
 		ans+=tree[pos];
 	return ans;
 }
-void init()
+ll sum(ll l, ll r)
+{
+	return sum(r)-sum(l-1);
+}
+void build()
 {
 	for(ll i=0;i<=n;i++)
 		tree[i]=0;
