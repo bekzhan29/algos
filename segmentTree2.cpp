@@ -3,7 +3,7 @@
 - upd(l, r) += k
 - sum(l, r)
 */
-ll tree[3*N+10],z[3*N+10];
+ll tree[4*N],z[4*N];
 void build(ll v, ll l, ll r)
 {
 	if(l==r)
@@ -40,10 +40,8 @@ void upd(ll v, ll l, ll r, ll x, ll y, ll k)
 	}
 	ll mid=(l+r)/2;
 	push(v,l,r,mid);
-	if(pos<=mid)
-		upd(v*2,l,mid,x,y,k);
-	else
-		upd(v*2+1,mid+1,r,x,y,k);
+	upd(v*2,l,mid,x,y,k);
+	upd(v*2+1,mid+1,r,x,y,k);
 	tree[v]=tree[v*2]+tree[v*2+1];
 }
 ll sum(ll v, ll l, ll r, ll x, ll y)
