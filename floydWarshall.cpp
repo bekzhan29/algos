@@ -1,11 +1,7 @@
 /*
 Floyd-Warshall O(N^3)
 */
-ll dist[N+10][N+10];
-struct edge{
-	ll x,y,z;
-	edge(ll x, ll y, ll z):x(x),y(y),z(z){}
-}e[M+10];
+ll x[N*N],y[N*N],z[N*N],dist[N][N];
 void floydWarshall()
 {
 	for(ll i=1;i<=n;i++)
@@ -14,7 +10,8 @@ void floydWarshall()
 	for(ll i=1;i<=n;i++)
 		dist[i][i]=0;
 	for(ll i=1;i<=m;i++)
-		dist[e[i].x][e[i].y]=e[i].z;
+		dist[x[i]][y[i]]=z[i],
+		dist[y[i]][x[i]]=z[i];
 	for(ll k=1;k<=n;k++)
 		for(ll i=1;i<=n;i++)
 			for(ll j=1;j<=n;j++)
