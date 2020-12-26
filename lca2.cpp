@@ -2,8 +2,9 @@
 Наименьший общий предок
 Поиск деревом отрезков O(logN)
 */
-ll sz,pos[N+10],ord[2*N+10],dep[2*N+10],tree[6*N+10],ptree[6*N+10];
-vector<ll>v[N+10];
+ll sz,pos[N],ord[2*N],dep[2*N];
+pll tree[8*N];
+vector<ll>v[N];
 void dfs(ll x, ll par, ll depth)
 {
 	ord[++sz]=x;
@@ -17,51 +18,37 @@ void dfs(ll x, ll par, ll depth)
 			dep[sz]=depth;
 		}
 }
-void init(ll root)
-{
-	dfs(root,0,1);
-}
 void build(ll v, ll l, ll r)
 {
 	if(l==r)
 	{
-		tree[v]=dep[l];
-		ptree[v]=l;
+		tree[v]={dep[l],l};
 		return;
 	}
 	ll mid=(l+r)/2;
 	build(v*2,l,mid);
 	build(v*2+1,mid+1,r);
 	tree[v]=min(tree[v*2],tree[v*2+1]);
-	if(tree[v*2]<tree[v*2+1])
-		ptree[v]=ptree[v*2];
-	else
-		ptree[v]=ptree[v*2+1];
 }
-ll getMin(ll v, ll l, ll r, ll x, ll y, ll &pos)
+void init(ll root)
+{
+	sz=0;
+	dfs(root,0,1);
+	build(1,1,sz);
+}
+pll minn(ll v, ll l, ll r, ll x, ll y)
 {
 	if(x>y||x>r||y<l)
-		return INF;
+		return {INF,0};
 	if(x<=l&&r<=y)
-	{
-		pos=ptree[v];
 		return tree[v];
-	}
-	ll mid=(l+r)/2,p1,p2;
-	ll left=getMin(v*2,l,mid,x,y,p1),right=getMin(v*2+1,mid+1,r,x,y,p2);
-	if(left<right)
-	{
-		pos=p1;
-		return left;
-	}
-	pos=p2;
-	return right;
+	ll mid=(l+r)/2;
+	return min(minn(v*2,l,mid,x,y),minn(v*2+1,mid+1,r,x,y));
 }
-ll findLCA(ll x, ll y)
+ll lca(ll x, ll y)
 {
 	if(pos[x]>pos[y])
 		swap(x,y);
-	ll p;
-	ll ans=getMin(1,1,sz,pos[x],pos[y],p);
-	return ord[p];
+	pll ans=minn(1,1,sz,pos[x],pos[y]);
+	return ord[ans.se];
 }
