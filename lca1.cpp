@@ -2,30 +2,31 @@
 Наименьший общий предок
 Поиск двоичным подьемом O(logN)
 */
-ll pr[17][N+10],tin[N+10],tout[N+10],tim;
-vector<ll>v[N+10];
+const ll lg=17;
+ll pr[lg][N],tin[N],tout[N],tim;
+vector<ll>v[N];
 void dfs(ll x, ll par)
 {
 	tin[x]=++tim;
 	pr[0][x]=par;
 	if(par==0)
 		pr[0][x]=x;
-	for(ll i=1;i<17;i++)
+	for(ll i=1;i<lg;i++)
 		pr[i][x]=pr[i-1][pr[i-1][x]];
 	for(ll to:v[x])
 		if(to!=par)
 			dfs(to,x);
 	tout[x]=tim;
 }
-ll findLCA(ll x, ll y)
+ll lca(ll x, ll y)
 {
-	ll lca=x;
-	for(ll i=16;i>=0;i--)
-		if(tin[pr[i][lca]]>tin[y]||tout[y]>tout[pr[i][lca]])
-			lca=pr[i][lca];
-	if(tin[lca]>tin[y]||tout[y]>tout[lca])
-		lca=pr[0][lca];
-	return lca;
+	ll ans=x;
+	for(ll i=lg-1;i>=0;i--)
+		if(tin[pr[i][ans]]>tin[y]||tout[y]>tout[pr[i][ans]])
+			ans=pr[i][lca];
+	if(tin[ans]>tin[y]||tout[y]>tout[ans])
+		ans=pr[0][ans];
+	return ans;
 }
 void init(ll root)
 {
