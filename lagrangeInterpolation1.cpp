@@ -2,7 +2,7 @@
 Lagrange Interpolation O(N^2logN)
 1^k+2^k+...+x^k
 */
-// #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -55,9 +55,10 @@ int main()
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 
-	cin>>n>>x>>k;
+	cin>>x>>k;
+	n=k+2;
 	for(ll i=1;i<=n;i++)
-		a[i]=f(i);
+		a[i]=a[i-1]+bin(i,k),a[i]%=mod;
 	for(ll i=1;i<=n;i++)
 	{
 		cur=a[i];
