@@ -68,5 +68,5 @@ int main()
 		ans+=cur;
 		ans%=mod;
 	}
-	cout<<ans<<" "<<f(x);
+	cout<<ans;
 }
