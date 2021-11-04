@@ -1,7 +1,7 @@
 /*
 Sparse Table
 - build O(NlogN)
-- sum(l,r) O(1)
+- min(l,r) O(1)
 */
 ll log2[N+10],sp[20][N+10];
 void build()
