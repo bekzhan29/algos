@@ -6,7 +6,7 @@ using namespace std;
 #define pb push_back
 #define mp make_pair
 #define INF ll(1e18)
-#define mod2 998244353
+#define mod3 998244353
 #define mod 1000000007
 #define eps 1e-9
 #define abs(x) ((x)>=0?(x):-(x))
