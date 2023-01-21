@@ -31,7 +31,7 @@ ll phi(ll n) {
 		ans-=ans/n;
 	return ans;
 }
-ll WHO()
+ll CRM()
 {
 	ll m=1,ans=0;
 	for(ll i=1;i<=sz;i++)
