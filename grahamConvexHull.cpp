@@ -16,7 +16,6 @@ ll cross(point o, point a, point b)
 {
 	return (a.x-o.x)*(b.y-o.y)-(a.y-o.y)*(b.x-o.x);
 }
-
 vector<point> convexHull(ll n, point a[])
 {
 	vector<point>ans;
