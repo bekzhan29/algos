@@ -3,39 +3,39 @@
 - a[x] += y
 - sum(l, r)
 */
-ll tree[4*N];
+ll tree[4 * N];
 void build(ll v, ll l, ll r)
 {
-	if(l==r)
+	if (l == r)
 	{
-		tree[v]=a[l];
+		tree[v] = a[l];
 		return;
 	}
-	ll mid=(l+r)/2;
-	build(v*2,l,mid);
-	build(v*2+1,mid+1,r);
-	tree[v]=tree[v*2]+tree[v*2+1];
+	ll mid = (l + r) / 2;
+	build(v * 2, l, mid);
+	build(v * 2 + 1, mid + 1, r);
+	tree[v] = tree[v * 2] + tree[v * 2 + 1];
 }
 void upd(ll v, ll l, ll r, ll pos, ll k)
 {
-	if(l==r)
+	if (l == r)
 	{
-		tree[v]+=k;
+		tree[v] += k;
 		return;
 	}
-	ll mid=(l+r)/2;
-	if(pos<=mid)
-		upd(v*2,l,mid,pos,k);
+	ll mid = (l + r) / 2;
+	if (pos <= mid)
+		upd(v * 2, l, mid, pos, k);
 	else
-		upd(v*2+1,mid+1,r,pos,k);
-	tree[v]=tree[v*2]+tree[v*2+1];
+		upd(v * 2 + 1, mid + 1, r, pos, k);
+	tree[v] = tree[v * 2] + tree[v * 2 + 1];
 }
 ll sum(ll v, ll l, ll r, ll x, ll y)
 {
-	if(x>y||x>r||y<l)
+	if (x > y || x > r || y < l)
 		return 0;
-	if(x<=l&&r<=y)
+	if (x <= l && r <= y)
 		return tree[v];
-	ll mid=(l+r)/2;
-	return sum(v*2,l,mid,x,y)+sum(v*2+1,mid+1,r,x,y);
+	ll mid = (l + r) / 2;
+	return sum(v * 2, l, mid, x, y) + sum(v * 2 + 1, mid + 1, r, x, y);
 }
