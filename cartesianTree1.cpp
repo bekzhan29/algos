@@ -3,51 +3,51 @@ Cartesian Tree
 */
 struct item
 {
-	ll x,y;
-	Node *l,*r;
-	item(){}
-	item(ll x, ll y, Node *l=NULL, Node *r=NULL):x(x),y(y),l(l),r(r){}
+	ll x, y;
+	Node *l, *r;
+	item() {}
+	item(ll x, ll y, Node *l = NULL, Node *r = NULL) : x(x), y(y), l(l), r(r) {}
 };
-typedef item * pitem;
+typedef item *pitem;
 void merge(pitem &t, pitem l, pitem r)
 {
-	if(!l||!r)
+	if (!l || !r)
 	{
-		t=l?l:r;
+		t = l ? l : r;
 		return;
 	}
-	if(l->y<r->y)
-		merge(l->r,l->r,r),t=l;
+	if (l->y < r->y)
+		merge(l->r, l->r, r), t = l;
 	else
-		merge(r->l,l,r->l),t=r;
+		merge(r->l, l, r->l), t = r;
 }
 void split(pitem t, ll k, pitem &l, pitem &r)
 {
-	if(!t)
+	if (!t)
 	{
-		l=r=NULL;
+		l = r = NULL;
 		return;
 	}
-	if(t->x<=k)
-		split(t->r,k,t->r,r),l=t;
+	if (t->x <= k)
+		split(t->r, k, t->r, r), l = t;
 	else
-		split(t->l,k,l,t->l),r=t;
+		split(t->l, k, l, t->l), r = t;
 }
 void add(pitem &t, pitem it)
 {
-	if(!t)
+	if (!t)
 	{
-		t=it;
+		t = it;
 		return;
 	}
-	if(it->y<t->y)
+	if (it->y < t->y)
 	{
-		split(t,it->x,it->l,it->r);
-		t=it;
+		split(t, it->x, it->l, it->r);
+		t = it;
 		return;
 	}
-	if(t->x<it->x)
-		add(t->r,it);
+	if (t->x < it->x)
+		add(t->r, it);
 	else
-		add(t->l,it);
+		add(t->l, it);
 }
