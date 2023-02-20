@@ -1,0 +1,2 @@
+# Библиотека алгоритмов.  
+Любой желающий может использовать их. А так же пополнять ее своими алгоритмами просто отправив [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request). Или можно написать мне в [телеграм](https://t.me/bekzhan29).
