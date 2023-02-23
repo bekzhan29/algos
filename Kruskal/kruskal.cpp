@@ -1,5 +1,5 @@
 /*
-Kruskal's algorithm O(MlogM)
+Алгоритм Крускала O(MlogM)
 */
 ll p[N + 10], r[N + 10], msz;
 struct edge
