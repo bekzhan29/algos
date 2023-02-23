@@ -8,6 +8,7 @@ pair<ll, ll> minn[N];
 struct edge
 {
 	ll x, y, w;
+	edge(ll x = 0, ll y = 0, ll w = 0) : x(x), y(y), w(w) {}
 } e[N], mst[N];
 void init_dsu(ll n)
 {
