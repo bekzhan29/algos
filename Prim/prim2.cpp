@@ -23,7 +23,7 @@ void prim(ll n)
 			break;
 		w[x] = 1;
 		for (edge e : v[x])
-			if (e.w < dist[e.y])
+			if (!w[e.y] && e.w < dist[e.y])
 				dist[e.y] = e.w, pr[e.y] = e.x;
 	}
 }
