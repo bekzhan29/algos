@@ -1,15 +1,19 @@
 /*
 Алгоритм Крускала O(MlogM)
 */
-ll p[N + 10], r[N + 10], msz;
+ll p[N], r[N], msz;
 struct edge
 {
-	ll x, y, z;
-	edge(ll x, ll y, ll z) : x(x), y(y), z(z) {}
-} e[N + 10], mst[N + 10];
+	ll x, y, w;
+} e[N], mst[N];
 bool cmp(edge a, edge b)
 {
 	return a.z < b.z;
+}
+void init_dsu(ll n)
+{
+	for (ll i = 1; i <= n; i++)
+		p[i] = i, r[i] = 1;
 }
 ll fin(ll a)
 {
@@ -17,23 +21,23 @@ ll fin(ll a)
 		return a;
 	return p[a] = fin(p[a]);
 }
-void uni(ll a, ll b)
+bool uni(ll a, ll b)
 {
 	a = fin(a), b = fin(b);
 	if (a == b)
-		return;
+		return 0;
 	if (r[a] > r[b])
 		r[a] += r[b], p[b] = a;
 	else
 		r[b] += r[a], p[a] = b;
+	return 1;
 }
-void kruskal()
+void kruskal(ll n, ll m)
 {
+	init_dsu(n);
 	msz = 0;
-	for (ll i = 1; i <= n; i++)
-		p[i] = i, r[i] = 1;
 	sort(e + 1, e + m + 1, &cmp);
 	for (ll i = 1; i <= m; i++)
-		if (fin(e[i].x) != fin(e[i].y))
-			uni(e[i].x, e[i].y), mst[++msz] = e[i];
+		if (uni(e[i].x, e[i].y))
+			mst[++msz] = e[i];
 }
