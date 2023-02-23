@@ -2,6 +2,7 @@
 Дерево Фенвика O(NlogN)
 - Сумма на отрезке O(logN)
 - a[x] += y O(logN)
+
 */
 ll tree[N];
 void add(ll pos, ll x)
