@@ -1,14 +1,14 @@
 /*
-Prim's algorithm O(M+N^2)
+Алгоритм Прима O(M+N^2)
 */
-ll dist[N + 10], w[N + 10], pr[N + 10];
+ll dist[N], w[N], pr[N];
 struct edge
 {
-	ll x, y, z;
-	edge(ll x, ll y, ll z) : x(x), y(y), z(z) {}
+	ll x, y, w;
+	edge(ll x = 0, ll y = 0, ll w = 0) : x(x), y(y), w(w) {}
 };
-vector<edge> v[N + 10];
-void dijkstra()
+vector<edge> v[N];
+void prim(ll n)
 {
 	for (ll i = 1; i <= n; i++)
 		dist[i] = INF, w[i] = 0;
@@ -23,7 +23,7 @@ void dijkstra()
 			break;
 		w[x] = 1;
 		for (edge e : v[x])
-			if (e.z < dist[e.y])
-				dist[e.y] = e.z, pr[e.y] = e.x;
+			if (e.w < dist[e.y])
+				dist[e.y] = e.w, pr[e.y] = e.x;
 	}
 }
