@@ -5,6 +5,7 @@ ll p[N], r[N], msz;
 struct edge
 {
 	ll x, y, w;
+	edge(ll x = 0, ll y = 0, ll w = 0) : x(x), y(y), w(w) {}
 } e[N], mst[N];
 bool cmp(edge a, edge b)
 {
