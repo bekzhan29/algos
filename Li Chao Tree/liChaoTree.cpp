@@ -2,6 +2,7 @@
 Li Chao Tree O(NlogN)
 - Добавить новую прямую O(logN)
 - Найти ответ O(logN)
+
 */
 const ll N = 1000100;
 struct line
