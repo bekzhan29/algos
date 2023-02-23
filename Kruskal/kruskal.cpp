@@ -8,7 +8,7 @@ struct edge
 } e[N], mst[N];
 bool cmp(edge a, edge b)
 {
-	return a.z < b.z;
+	return a.w < b.w;
 }
 void init_dsu(ll n)
 {
