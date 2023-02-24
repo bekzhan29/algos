@@ -4,18 +4,6 @@ Slope trick O(NlogN)
 Пост - https://codeforces.com/blog/entry/77298
 */
 #include <bits/stdc++.h>
-#include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <algorithm>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <queue>
-#include <stack>
-#include <chrono>
-#include <random>
 using namespace std;
 #define pb push_back
 #define mp make_pair
