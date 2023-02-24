@@ -1,13 +1,13 @@
 /*
 Алгоритм Дейкстры O(MlogN)
 */
-ll dist[N + 10], w[N + 10];
+ll dist[N], w[N];
 struct edge
 {
 	ll x, y, w;
-	edge(ll x, ll y, ll w) : x(x), y(y), w(w) {}
+	edge(ll x = 0, ll y = 0, ll w = 0) : x(x), y(y), w(w) {}
 };
-vector<edge> v[N + 10];
+vector<edge> v[N];
 void dijkstra(ll st, ll n)
 {
 	priority_queue<pair<ll, ll>> s;
