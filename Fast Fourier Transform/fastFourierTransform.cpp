@@ -5,14 +5,15 @@ double pi = acos(-1);
 struct complexx
 {
 	double x, y;
+	complexx(double x = 0, double y = 0) : x(x), y(y) {}
+	complexx operator*(const complexx &a)
+	{
+		complexx c;
+		c.x = x * a.x - y * a.y;
+		c.y = x * a.y + y * a.x;
+		return c;
+	}
 } a[N], b[N], c[N];
-complexx mul(complexx a, complexx b)
-{
-	complexx c;
-	c.x = a.x * b.x - a.y * b.y;
-	c.y = a.x * b.y + a.y * b.x;
-	return c;
-}
 ll rev(ll x, ll n)
 {
 	ll ans = 0;
@@ -39,20 +40,19 @@ void fft(ll n, complexx *a, bool ch)
 		ll len2 = len / 2;
 		complexx w, w1;
 		double ang = 2 * pi / len * (ch ? -1 : 1);
-		w1.x = cos(ang);
-		w1.y = sin(ang);
+		w1 = complexx(cos(ang), sin(ang));
 		for (ll i = 0; i < n; i += len)
 		{
 			w.x = 1;
 			w.y = 0;
 			for (ll j = 0; j < len2; j++)
 			{
-				complexx u = a[i + j], v = mul(a[i + j + len2], w);
+				complexx u = a[i + j], v = a[i + j + len2] * w;
 				a[i + j].x = u.x + v.x;
 				a[i + j].y = u.y + v.y;
 				a[i + j + len2].x = u.x - v.x;
 				a[i + j + len2].y = u.y - v.y;
-				w = mul(w, w1);
+				w = w * w1;
 			}
 		}
 	}
