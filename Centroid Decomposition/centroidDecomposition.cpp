@@ -1,8 +1,8 @@
 /*
 Centroid Decomposition
 */
-ll used[N + 10], cnt[N + 10];
-vector<ll> v[N + 10], pr[N + 10];
+ll used[N], cnt[N];
+vector<ll> v[N], pr[N];
 void dfs(ll x, ll par)
 {
 	cnt[x] = 1;
