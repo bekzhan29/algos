@@ -1,2 +1,2 @@
-[Видео](https://www.youtube.com/watch?v=5aPjt7WF8oY&t=0s) урок от [Нияза Нигматуллина](https://codeforces.com/profile/niyaznigmatul)  
-Таймкод 0:00-27:00
+[Видео](https://www.youtube.com/watch?v=5aPjt7WF8oY&t=0s) урок для sparseTable2.cpp от [Нияза Нигматуллина](https://codeforces.com/profile/niyaznigmatul)  
+Таймкод [0:00-27:00](https://www.youtube.com/watch?v=5aPjt7WF8oY&t=0s)
