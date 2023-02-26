@@ -1,7 +1,7 @@
 /*
 Бинарное возведение матрицы A размера NxN в степень M O(N^3*logM)
 */
-void bpow(ll m)
+void bpow(ll n, ll m)
 {
 	for (ll i = 1; i <= n; i++)
 		for (ll j = 1; j <= n; j++)
