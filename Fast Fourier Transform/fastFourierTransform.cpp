@@ -2,13 +2,13 @@
 Быстрое Преобразование Фурье
 */
 double pi = acos(-1);
-struct complex
+struct complexx
 {
 	double x, y;
-} a[N + 10], b[N + 10], c[N + 10];
-complex mul(complex a, complex b)
+} a[N], b[N], c[N];
+complexx mul(complexx a, complexx b)
 {
-	complex c;
+	complexx c;
 	c.x = a.x * b.x - a.y * b.y;
 	c.y = a.x * b.y + a.y * b.x;
 	return c;
@@ -23,7 +23,7 @@ ll rev(ll x, ll n)
 	}
 	return ans;
 }
-void fft(ll n, complex *a, bool ch)
+void fft(ll n, complexx *a, bool ch)
 {
 	ll log = 0;
 	while ((1 << log) < n)
@@ -37,7 +37,7 @@ void fft(ll n, complex *a, bool ch)
 	for (ll len = 2; len <= n; len *= 2)
 	{
 		ll len2 = len / 2;
-		complex w, w1;
+		complexx w, w1;
 		double ang = 2 * pi / len * (ch ? -1 : 1);
 		w1.x = cos(ang);
 		w1.y = sin(ang);
@@ -47,7 +47,7 @@ void fft(ll n, complex *a, bool ch)
 			w.y = 0;
 			for (ll j = 0; j < len2; j++)
 			{
-				complex u = a[i + j], v = mul(a[i + j + len2], w);
+				complexx u = a[i + j], v = mul(a[i + j + len2], w);
 				a[i + j].x = u.x + v.x;
 				a[i + j].y = u.y + v.y;
 				a[i + j + len2].x = u.x - v.x;
