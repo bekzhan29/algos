@@ -2,9 +2,9 @@
 Поиск мостов в связном графе O(N+M)
 Граф не содержит кратных рёбер
 */
-ll cnt, w[N + 10], dep[N + 10], up[N + 10];
-pair<ll, ll> br[N + 10];
-vector<ll> v[N + 10];
+ll cnt, w[N], dep[N], up[N];
+pair<ll, ll> br[N];
+vector<ll> v[N];
 void dfs(ll x, ll pr, ll depth)
 {
 	dep[x] = up[x] = depth;
