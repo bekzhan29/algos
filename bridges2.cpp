@@ -6,9 +6,9 @@ struct edge
 {
 	ll x, y, ind;
 	edge(ll x = 0, ll y = 0, ll ind = 0) : x(x), y(y), ind(ind) {}
-} br[N + 10];
-ll cnt, w[N + 10], dep[N + 10], up[N + 10];
-vector<edge> v[N + 10];
+} br[N];
+ll cnt, w[N], dep[N], up[N];
+vector<edge> v[N];
 void dfs(ll x, ll last, ll depth)
 {
 	dep[x] = up[x] = depth;
