@@ -3,7 +3,7 @@ Sparse Table
 - build O(NlogN)
 - min(l,r) O(1)
 */
-ll log2[N + 10], sp[20][N + 10];
+ll log2[N], sp[20][N];
 void build()
 {
 	log2[1] = 0;
