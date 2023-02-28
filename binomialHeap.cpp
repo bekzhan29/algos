@@ -5,7 +5,7 @@
 - добавить элемент O(logN)
 - удалить минимум O(logN)
 */
-ll head[N + 10], val[N + 10], sib[N + 10], son[N + 10], par[N + 10], cnt[N + 10], sz;
+ll head[N], val[N], sib[N], son[N], par[N], cnt[N], sz;
 void print(ll head)
 {
 	while (head)
