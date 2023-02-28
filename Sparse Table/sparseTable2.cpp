@@ -3,7 +3,7 @@ Sparse Table
 - build O(NlogN)
 - sum(l,r) O(1)
 */
-ll n1, lg2[2 * N + 10], sp[20][2 * N + 10];
+ll n1, lg2[2 * N], sp[20][2 * N];
 void build()
 {
 	n1 = 1;
