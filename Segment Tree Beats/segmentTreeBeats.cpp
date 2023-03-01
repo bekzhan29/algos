@@ -4,7 +4,6 @@ Segment tree beats O(Nlog^2N)
 2. Взять по модулю на отрезке l,r a[i]%=x
 3. Обновление a[i]=x
 */
-const ll N = 100100;
 ll a[N];
 struct item
 {
