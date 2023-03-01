@@ -3,12 +3,12 @@
 - a[x] += y O(logN)
 - sum(l, r) в версии i O(logN)
 */
-ll a[N + 10], root[N + 10], sz;
+ll a[N], root[N], sz;
 struct node
 {
 	ll sum, l, r;
 	node() : sum(0), l(0), r(0) {}
-} tree[N + 10];
+} tree[N];
 void build(ll &v, ll l, ll r)
 {
 	if (!v)
