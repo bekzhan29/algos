@@ -3,7 +3,7 @@ Sqrt Decomposition
 - a[x] += y O(1)
 - sum(l,r) O(sqrt(N))
 */
-ll bl[N + 10], len = 320;
+ll bl[N], len = 320;
 void build()
 {
 	for (ll i = 1; i <= n; i++)
