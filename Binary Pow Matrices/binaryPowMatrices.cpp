@@ -1,36 +1,60 @@
 /*
-Бинарное возведение матрицы A размера NxN в степень M O(N^3*logM)
+Бинарное возведение матрицы A размера NxN в степень K O(N^3*logK)
 */
-void bpow(ll n, ll m)
+struct matrix
 {
-	for (ll i = 1; i <= n; i++)
-		for (ll j = 1; j <= n; j++)
-			res[i][j] = (i == j);
-	while (m)
+	ll n, m, p;
+	ll **a;
+	void resize(ll n, ll m)
 	{
-		if (m & 1)
+		a = new ll *[n];
+		for (ll i = 0; i < n; i++)
 		{
-			for (ll i = 1; i <= n; i++)
-				for (ll j = 1; j <= n; j++)
-				{
-					c[i][j] = 0;
-					for (ll k = 1; k <= n; k++)
-						c[i][j] += res[i][k] * a[k][j], c[i][j] %= mod;
-				}
-			for (ll i = 1; i <= n; i++)
-				for (ll j = 1; j <= n; j++)
-					res[i][j] = c[i][j];
+			a[i] = new ll[m];
+			for (ll j = 0; j < m; j++)
+				a[i][j] = 0;
 		}
-		for (ll i = 1; i <= n; i++)
-			for (ll j = 1; j <= n; j++)
-			{
-				c[i][j] = 0;
-				for (ll k = 1; k <= n; k++)
-					c[i][j] += a[i][k] * a[k][j], c[i][j] %= mod;
-			}
-		for (ll i = 1; i <= n; i++)
-			for (ll j = 1; j <= n; j++)
-				a[i][j] = c[i][j];
-		m /= 2;
 	}
+	matrix(int n = 1, int m = 1, int p = 2)
+	{
+		this->n = n;
+		this->m = m;
+		this->p = p;
+		resize(n, m);
+	}
+	matrix &operator*=(const matrix &b)
+	{
+		assert(m == b.n);
+		matrix c(n, b.m, p);
+		for (ll i = 0; i < n; i++)
+			for (ll j = 0; j < b.m; j++)
+				for (ll k = 0; k < m; k++)
+				{
+					c.a[i][j] += 1LL * a[i][k] * b.a[k][j] % p;
+					if (c.a[i][j] >= p)
+						c.a[i][j] -= p;
+				}
+		n = c.n;
+		m = c.m;
+		resize(n, m);
+		for (ll i = 0; i < n; i++)
+			for (ll j = 0; j < m; j++)
+				a[i][j] = c.a[i][j];
+		return *this;
+	}
+};
+matrix bin(matrix a, ll k)
+{
+	assert(a.n == a.m);
+	matrix ans(a.n, a.n, a.p);
+	for (ll i = 0; i < ans.n; i++)
+		ans.a[i][i] = 1;
+	while (k)
+	{
+		if (k & 1)
+			ans *= a;
+		a *= a;
+		k /= 2;
+	}
+	return ans;
 }
