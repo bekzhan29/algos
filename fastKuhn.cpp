@@ -1,8 +1,8 @@
 /*
 Kuhn's algorithm O(NM)
 */
-ll mu[N + 10], go[N + 10], w[N + 10];
-vector<ll> v[N + 10];
+ll mu[N], go[N], w[N];
+vector<ll> v[N];
 ll try_kuhn(ll x)
 {
 	if (w[x])
