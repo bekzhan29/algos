@@ -3,8 +3,8 @@ Heavy-Light Decomposition
 - a[x] += y O(logN)
 - max(x,y) O(log^2(N))
 */
-ll pr[17][N + 10], tin[N + 10], tout[N + 10], tim, tree[3 * N + 10], a[N + 10], pos[N + 10], head[N + 10], ind[N + 10], l[N + 10], r[N + 10], c[N + 10], cnt, sz;
-vector<ll> v[N + 10];
+ll pr[17][N], tin[N], tout[N], tim, tree[3 * N], a[N], pos[N], head[N], ind[N], l[N], r[N], c[N], cnt, sz;
+vector<ll> v[N];
 void dfs(ll x, ll par)
 {
 	tin[x] = ++tim;
