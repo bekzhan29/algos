@@ -22,6 +22,16 @@ struct matrix
 		this->p = p;
 		resize(n, m);
 	}
+	matrix(const matrix &b)
+	{
+		n = b.n;
+		m = b.m;
+		p = b.p;
+		resize(n, m);
+		for (ll i = 0; i < n; i++)
+			for (ll j = 0; j < m; j++)
+				a[i][j] = b.a[i][j];
+	}
 	matrix &operator*=(const matrix &b)
 	{
 		assert(m == b.n);
@@ -40,6 +50,17 @@ struct matrix
 		for (ll i = 0; i < n; i++)
 			for (ll j = 0; j < m; j++)
 				a[i][j] = c.a[i][j];
+		return *this;
+	}
+	matrix &operator=(const matrix &b)
+	{
+		n = b.n;
+		m = b.m;
+		p = b.p;
+		resize(n, m);
+		for (ll i = 0; i < n; i++)
+			for (ll j = 0; j < m; j++)
+				a[i][j] = b.a[i][j];
 		return *this;
 	}
 };
