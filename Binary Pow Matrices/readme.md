@@ -1,4 +1,4 @@
-Возводит матрицу A размера NxN в степень K за время O(N^3logK).
+Возводит матрицу A размера NxN в степень K за время O(N<sup>3</sup>logK).
 
 [Пост](https://codeforces.com/blog/entry/80195) от [Errichto](https://codeforces.com/profile/Errichto)
 
@@ -6,7 +6,7 @@
 
 <br/>
 
-Raises matrix A of size NxN to the power of K in O(N^3logK) time.
+Raises matrix A of size NxN to the power of K in O(N<sup>3</sup>logK) time.
 
 [Blog](https://codeforces.com/blog/entry/80195) by [Errichto](https://codeforces.com/profile/Errichto)
 
