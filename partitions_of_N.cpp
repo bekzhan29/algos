@@ -24,7 +24,7 @@ using namespace std;
 typedef long long ll;
 typedef long double ld;
 typedef pair<ll, ll> pll;
-const ll N = 1000100;
+const ll N = 100100;
 ll n, d[N];
 int main()
 {
