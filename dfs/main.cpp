@@ -37,6 +37,13 @@ struct graph {
             }
         }
     }
+
+    inline void add_edge(int v, int u, bool directional) {
+        g[v].push_back(u);
+        if(!directional) {
+            g[u].push_back(v);
+        }
+    }
 };
 
 int main() {
