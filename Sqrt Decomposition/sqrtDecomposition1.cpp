@@ -6,15 +6,17 @@ Sqrt Decomposition
 template <typename Type>
 struct sqrt_dec
 {
-	ll len = 320;
-	Type a[N], bl[N];
-	void build(ll n, Type *a)
+	ll len;
+	vector<Type> a, bl;
+	void build(ll n, Type *ar)
 	{
 		len = sqrt(n);
+		a.push_back(0);
+		bl.resize(n / len + 1);
 		for (ll i = 1; i <= n; i++)
 		{
-			this->a[i] = a[i];
-			bl[i / len] += a[i];
+			a.push_back(ar[i]);
+			bl[i / len] += ar[i];
 		}
 	}
 	void upd(ll pos, Type k)
