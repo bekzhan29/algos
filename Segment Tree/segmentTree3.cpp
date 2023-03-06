@@ -1,11 +1,14 @@
 /*
-Дерево отрезков снизу вверх
-- a[x] += y
+Дерево отрезков сверху вниз
+- upd(l, r) += k
 - sum(l, r)
 */
-struct segment_tree{
-	ll n1, tree[4 * N];
-	void build(ll n, ll *a)
+template <typename Type>
+struct segment_tree
+{
+	ll n1;
+	Type tree[4 * N];
+	void build(ll n, Type *a)
 	{
 		n1 = 1;
 		while (n1 < n)
@@ -16,7 +19,7 @@ struct segment_tree{
 		for (ll i = n1; i >= 1; i--)
 			tree[i] = tree[i * 2] + tree[i * 2 + 1];
 	}
-	void upd(ll pos, ll k)
+	void upd(ll pos, Type k)
 	{
 		pos += n1;
 		tree[pos] += k;
@@ -24,11 +27,11 @@ struct segment_tree{
 		for (; pos; pos /= 2)
 			tree[pos] = tree[pos * 2] + tree[pos * 2 + 1];
 	}
-	ll sum(ll l, ll r)
+	Type sum(ll l, ll r)
 	{
 		l += n1;
 		r += n1;
-		ll ans = 0;
+		Type ans = 0;
 		while (l <= r)
 		{
 			if (l & 1)
