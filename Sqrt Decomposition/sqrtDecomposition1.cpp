@@ -11,8 +11,8 @@ struct sqrt_dec
 	void build(ll n, Type *ar)
 	{
 		len = sqrt(n);
-		a.push_back(0);
 		bl.resize(n / len + 1);
+		a.push_back(0);
 		for (ll i = 1; i <= n; i++)
 		{
 			a.push_back(ar[i]);
