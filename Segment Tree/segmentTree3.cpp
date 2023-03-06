@@ -7,9 +7,10 @@ template <typename Type>
 struct segment_tree
 {
 	ll n1;
-	Type tree[4 * N];
+	vector<Type> tree;
 	void build(ll n, Type *a)
 	{
+		tree.resize(4 * n);
 		n1 = 1;
 		while (n1 < n)
 			n1 *= 2;
