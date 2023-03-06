@@ -3,9 +3,11 @@
 - upd(l, r) += k
 - sum(l, r)
 */
-struct segment_tree{
-	ll tree[4 * N], z[4 * N];
-	void build(ll v, ll l, ll r, ll *a)
+template <typename Type>
+struct segment_tree
+{
+	Type tree[4 * N], z[4 * N];
+	void build(ll v, ll l, ll r, Type *a)
 	{
 		if (l == r)
 		{
@@ -29,7 +31,7 @@ struct segment_tree{
 		tree[v * 2 + 1] += z[v] * (r - mid);
 		z[v] = 0;
 	}
-	void upd(ll v, ll l, ll r, ll x, ll y, ll k)
+	void upd(ll v, ll l, ll r, ll x, ll y, Type k)
 	{
 		if (x > y || x > r || y < l)
 			return;
@@ -45,7 +47,7 @@ struct segment_tree{
 		upd(v * 2 + 1, mid + 1, r, x, y, k);
 		tree[v] = tree[v * 2] + tree[v * 2 + 1];
 	}
-	ll sum(ll v, ll l, ll r, ll x, ll y)
+	Type sum(ll v, ll l, ll r, ll x, ll y)
 	{
 		if (x > y || x > r || y < l)
 			return 0;
