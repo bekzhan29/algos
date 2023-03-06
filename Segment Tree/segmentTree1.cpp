@@ -6,7 +6,8 @@
 template <typename Type>
 struct segment_tree
 {
-	Type tree[4 * N];
+	ll n;
+	vector<Type> tree;
 	void build(ll v, ll l, ll r, Type *a)
 	{
 		if (l == r)
@@ -41,5 +42,19 @@ struct segment_tree
 			return tree[v];
 		ll mid = (l + r) / 2;
 		return sum(v * 2, l, mid, x, y) + sum(v * 2 + 1, mid + 1, r, x, y);
+	}
+	void build(ll n, Type *a)
+	{
+		this->n = n;
+		tree.resize(4 * n);
+		build(1, 1, n, a);
+	}
+	void upd(ll pos, Type k)
+	{
+		upd(1, 1, n, pos, k);
+	}
+	Type sum(ll l, ll r)
+	{
+		return sum(1, 1, n, l, r);
 	}
 };
