@@ -3,27 +3,36 @@
 - Сумма на отрезке O(logN)
 - a[x] += y O(logN)
 */
-ll tree[N];
-void add(ll pos, ll x)
+template <typename Type>
+struct fenwick
 {
-	for (; pos <= n; pos = (pos | (pos + 1)))
-		tree[pos] += x;
-}
-ll sum(ll pos)
-{
-	ll ans = 0;
-	for (; pos >= 0; pos = (pos & (pos + 1)) - 1)
-		ans += tree[pos];
-	return ans;
-}
-ll sum(ll l, ll r)
-{
-	return sum(r) - sum(l - 1);
-}
-void build()
-{
-	for (ll i = 0; i <= n; i++)
-		tree[i] = 0;
-	for (ll i = 1; i <= n; i++)
-		add(i, a[i]);
-}
+private:
+	int n;
+	Type tree[N];
+	Type sum(int pos)
+	{
+		int ans = 0;
+		for (; pos >= 0; pos = (pos & (pos + 1)) - 1)
+			ans += tree[pos];
+		return ans;
+	}
+
+public:
+	void build(int n, Type *a)
+	{
+		this->n = n;
+		for (int i = 0; i <= n; i++)
+			tree[i] = 0;
+		for (int i = 1; i <= n; i++)
+			add(i, a[i]);
+	}
+	void add(int pos, Type x)
+	{
+		for (; pos <= n; pos = (pos | (pos + 1)))
+			tree[pos] += x;
+	}
+	Type sum(int l, int r)
+	{
+		return sum(r) - sum(l - 1);
+	}
+};
