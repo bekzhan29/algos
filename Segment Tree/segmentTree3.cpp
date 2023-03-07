@@ -6,8 +6,11 @@
 template <typename Type>
 struct segment_tree
 {
+private:
 	ll n1;
 	vector<Type> tree;
+
+public:
 	void build(ll n, Type *a)
 	{
 		tree.resize(4 * n);
