@@ -1,5 +1,5 @@
 /*
-Быстрое Преобразование Фурье
+Быстрое Преобразование Фурье. /* test, do not merge */
 */
 double pi = acos(-1);
 struct complexx
