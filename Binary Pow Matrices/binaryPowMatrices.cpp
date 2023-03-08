@@ -4,33 +4,23 @@
 struct matrix
 {
 	ll n, m, p;
-	ll **a;
-	void resize(ll n, ll m)
+	vector<vector<ll>>a;
+	void resize(ll n, ll m, ll p)
 	{
-		a = new ll *[n];
+		this->n = n;
+		this->m = m;
+		this->p = p;
+		a.resize(n);
 		for (ll i = 0; i < n; i++)
 		{
-			a[i] = new ll[m];
+			a[i].resize(m);
 			for (ll j = 0; j < m; j++)
 				a[i][j] = 0;
 		}
 	}
 	matrix(int n = 1, int m = 1, int p = 2)
 	{
-		this->n = n;
-		this->m = m;
-		this->p = p;
-		resize(n, m);
-	}
-	matrix(const matrix &b)
-	{
-		n = b.n;
-		m = b.m;
-		p = b.p;
-		resize(n, m);
-		for (ll i = 0; i < n; i++)
-			for (ll j = 0; j < m; j++)
-				a[i][j] = b.a[i][j];
+		resize(n, m, p);
 	}
 	matrix &operator*=(const matrix &b)
 	{
@@ -46,21 +36,7 @@ struct matrix
 				}
 		n = c.n;
 		m = c.m;
-		resize(n, m);
-		for (ll i = 0; i < n; i++)
-			for (ll j = 0; j < m; j++)
-				a[i][j] = c.a[i][j];
-		return *this;
-	}
-	matrix &operator=(const matrix &b)
-	{
-		n = b.n;
-		m = b.m;
-		p = b.p;
-		resize(n, m);
-		for (ll i = 0; i < n; i++)
-			for (ll j = 0; j < m; j++)
-				a[i][j] = b.a[i][j];
+		a = c.a;
 		return *this;
 	}
 };
