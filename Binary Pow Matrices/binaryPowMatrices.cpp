@@ -4,7 +4,7 @@
 struct matrix
 {
 	ll n, m, p;
-	vector<vector<ll>>a;
+	vector<vector<ll>> a;
 	void resize(ll n, ll m, ll p)
 	{
 		this->n = n;
