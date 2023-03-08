@@ -9,55 +9,55 @@ struct segment_tree
 private:
 	int n;
 	vector<Type> tree, z;
-	void build_tree(int v, int l, int r, Type *a)
+	void build_tree(int v, int vl, int vr, Type *a)
 	{
-		if (l == r)
+		if (vl == vr)
 		{
-			tree[v] = a[l];
+			tree[v] = a[vl];
 			z[v] = 0;
 			return;
 		}
-		int mid = (l + r) / 2;
-		build_tree(v * 2, l, mid, a);
-		build_tree(v * 2 + 1, mid + 1, r, a);
+		int mid = (vl + vr) / 2;
+		build_tree(v * 2, vl, mid, a);
+		build_tree(v * 2 + 1, mid + 1, vr, a);
 		tree[v] = tree[v * 2] + tree[v * 2 + 1];
 		z[v] = 0;
 	}
-	void push(int v, int l, int r, int mid)
+	void push(int v, int vl, int vr, int mid)
 	{
 		if (z[v] == 0)
 			return;
 		z[v * 2] += z[v];
 		z[v * 2 + 1] += z[v];
-		tree[v * 2] += z[v] * (mid - l + 1);
-		tree[v * 2 + 1] += z[v] * (r - mid);
+		tree[v * 2] += z[v] * (mid - vl + 1);
+		tree[v * 2 + 1] += z[v] * (vr - mid);
 		z[v] = 0;
 	}
-	void upd_tree(int v, int l, int r, int x, int y, Type k)
+	void upd_tree(int v, int vl, int vr, int l, int r, Type k)
 	{
-		if (x > y || x > r || y < l)
+		if (l > r || l > vr || r < vl)
 			return;
-		if (x <= l && r <= y)
+		if (l <= vl && vr <= r)
 		{
-			tree[v] += (r - l + 1) * k;
+			tree[v] += (vr - vl + 1) * k;
 			z[v] += k;
 			return;
 		}
-		int mid = (l + r) / 2;
-		push(v, l, r, mid);
-		upd_tree(v * 2, l, mid, x, y, k);
-		upd_tree(v * 2 + 1, mid + 1, r, x, y, k);
+		int mid = (vl + vr) / 2;
+		push(v, vl, vr, mid);
+		upd_tree(v * 2, vl, mid, l, r, k);
+		upd_tree(v * 2 + 1, mid + 1, vr, l, r, k);
 		tree[v] = tree[v * 2] + tree[v * 2 + 1];
 	}
-	Type get_sum(int v, int l, int r, int x, int y)
+	Type get_sum(int v, int vl, int vr, int l, int r)
 	{
-		if (x > y || x > r || y < l)
+		if (l > r || l > vr || r < vl)
 			return 0;
-		if (x <= l && r <= y)
+		if (l <= vl && vr <= r)
 			return tree[v];
-		int mid = (l + r) / 2;
-		push(v, l, r, mid);
-		return get_sum(v * 2, l, mid, x, y) + get_sum(v * 2 + 1, mid + 1, r, x, y);
+		int mid = (vl + vr) / 2;
+		push(v, vl, vr, mid);
+		return get_sum(v * 2, vl, mid, l, r) + get_sum(v * 2 + 1, mid + 1, vr, l, r);
 	}
 
 public:
