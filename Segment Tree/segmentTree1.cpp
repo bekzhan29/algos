@@ -9,40 +9,40 @@ struct segment_tree
 private:
 	int n;
 	vector<Type> tree;
-	void build_tree(int v, int l, int r, Type *a)
+	void build_tree(int v, int vl, int vr, Type *a)
 	{
-		if (l == r)
+		if (vl == vr)
 		{
-			tree[v] = a[l];
+			tree[v] = a[vl];
 			return;
 		}
-		int mid = (l + r) / 2;
+		int mid = (vl + vr) / 2;
 		build_tree(v * 2, l, mid, a);
-		build_tree(v * 2 + 1, mid + 1, r, a);
+		build_tree(v * 2 + 1, mid + 1, vr, a);
 		tree[v] = tree[v * 2] + tree[v * 2 + 1];
 	}
-	void upd_tree(int v, int l, int r, int pos, Type k)
+	void upd_tree(int v, int vl, int vr, int pos, Type k)
 	{
-		if (l == r)
+		if (vl == vr)
 		{
 			tree[v] += k;
 			return;
 		}
-		int mid = (l + r) / 2;
+		int mid = (vl + vr) / 2;
 		if (pos <= mid)
-			upd_tree(v * 2, l, mid, pos, k);
+			upd_tree(v * 2, vl, mid, pos, k);
 		else
-			upd_tree(v * 2 + 1, mid + 1, r, pos, k);
+			upd_tree(v * 2 + 1, mid + 1, vr, pos, k);
 		tree[v] = tree[v * 2] + tree[v * 2 + 1];
 	}
-	Type get_sum(int v, int l, int r, int x, int y)
+	Type get_sum(int v, int vl, int vr, int l, int r)
 	{
-		if (x > y || x > r || y < l)
+		if (l > r || l > vr || r < vl)
 			return 0;
-		if (x <= l && r <= y)
+		if (l <= vl && vr <= r)
 			return tree[v];
-		int mid = (l + r) / 2;
-		return get_sum(v * 2, l, mid, x, y) + get_sum(v * 2 + 1, mid + 1, r, x, y);
+		int mid = (vl + vr) / 2;
+		return get_sum(v * 2, vl, mid, l, r) + get_sum(v * 2 + 1, mid + 1, vr, l, r);
 	}
 
 public:
