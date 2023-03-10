@@ -1,4 +1,4 @@
-[Видео](https://www.youtube.com/watch?v=5aPjt7WF8oY&t=0s) урок для sparse_table2.cpp от [Нияза Нигматуллина](https://codeforces.com/profile/niyaznigmatul)  
+[Видео](https://www.youtube.com/watch?v=5aPjt7WF8oY&t=0s) урок для `sparse_table2.cpp` от [Нияза Нигматуллина](https://codeforces.com/profile/niyaznigmatul)  
 Таймкод [0:00-27:00](https://www.youtube.com/watch?v=5aPjt7WF8oY&t=0s)
 
 <details>
