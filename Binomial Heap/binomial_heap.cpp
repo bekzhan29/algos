@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Биномиальная пирамида
 - объединить 2 пирамиды O(logN)
 - найти минимум O(logN)
