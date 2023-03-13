@@ -1,5 +1,7 @@
 /*
-Cartesian Tree
+https://github.com/bekzhan29/algos/
+
+Декартово дерево
 */
 struct item
 {
