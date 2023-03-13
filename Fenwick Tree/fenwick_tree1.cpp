@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Дерево Фенвика O(NlogN)
 - Сумма на отрезке O(logN)
 - a[x] += y O(logN)
