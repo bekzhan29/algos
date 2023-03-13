@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Дерево отрезков сверху вниз
 - a[x] += y
 - sum(l, r)

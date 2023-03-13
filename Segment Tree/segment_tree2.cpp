@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Дерево отрезков сверху вниз
 - upd(l, r) += k
 - sum(l, r)
