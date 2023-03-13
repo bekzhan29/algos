@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Centroid Decomposition
 */
 ll used[N], cnt[N];
