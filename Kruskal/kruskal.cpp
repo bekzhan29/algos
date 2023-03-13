@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Алгоритм Крускала O(MlogM)
 */
 ll p[N], r[N], msz;

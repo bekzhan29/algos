@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Алгоритм Борувки O(MlogN)
 e[N] - ребра
 mst[N] - ребра в минимальном оставном дереве

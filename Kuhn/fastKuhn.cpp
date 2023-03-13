@@ -1,5 +1,7 @@
 /*
-Kuhn's algorithm O(NM)
+https://github.com/bekzhan29/algos/
+
+Быстрый алгоритм Куна
 */
 ll mu[N], go[N], w[N];
 vector<ll> v[N];

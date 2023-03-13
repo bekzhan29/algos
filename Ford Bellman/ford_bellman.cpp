@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Алгоритм Форда-Беллмана O(NM)
 */
 ll dist[N];

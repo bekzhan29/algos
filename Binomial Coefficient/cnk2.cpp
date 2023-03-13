@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Биномиальные коэффициенты O(N)
 */
 int bin_pow(int a, int n, int m)

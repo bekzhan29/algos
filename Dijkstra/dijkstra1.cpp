@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Алгоритм Дейкстры O(MlogN)
 */
 ll dist[N], w[N];

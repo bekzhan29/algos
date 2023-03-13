@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Теорема Лукаса O(P)
 */
 ll f[N], rf[N];

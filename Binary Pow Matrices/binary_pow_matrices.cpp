@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Бинарное возведение матрицы A размера NxN в степень K O(N^3*logK)
 */
 struct matrix

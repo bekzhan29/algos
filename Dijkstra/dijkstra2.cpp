@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Алгоритм Дейкстры O(M+N^2)
 */
 ll dist[N], w[N];

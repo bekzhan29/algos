@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Биномиальные коэффициенты O(N^2)
 */
 struct cnk

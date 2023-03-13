@@ -1,3 +1,6 @@
+/*
+https://github.com/bekzhan29/algos/
+*/
 int bin_pow(int a, int n, int m)
 {
 	int ans = 1;

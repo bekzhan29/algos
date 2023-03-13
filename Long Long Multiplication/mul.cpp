@@ -1,3 +1,6 @@
+/*
+https://github.com/bekzhan29/algos/
+*/
 ll mul(ll a, ll b, ll m)
 {
 	ll q = (ll)((long double)a * (long double)b / (long double)m);

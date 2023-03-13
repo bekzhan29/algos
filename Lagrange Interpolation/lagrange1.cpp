@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Lagrange Interpolation O(N^2logN)
 1^k+2^k+...+x^k
 */
