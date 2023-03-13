@@ -1,4 +1,6 @@
 /*
+https://github.com/bekzhan29/algos/
+
 Декартово дерево по неявному ключу
 */
 struct item
