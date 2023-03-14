@@ -1,5 +1,8 @@
-/*
+/* 
 Z function
+- Description: for a string s, returns an array of length n where the i'th element is equal to the 
+greatest number of characters starting from the position i that coincide with the 
+first characters of s.
 - Complexity: O(|s|)
 */
 vector<int> z_function(string s)
