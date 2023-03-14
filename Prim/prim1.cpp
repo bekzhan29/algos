@@ -1,6 +1,4 @@
 /*
-https://github.com/bekzhan29/algos/
-
 Алгоритм Прима O(MlogN)
 */
 ll dist[N], w[N], pr[N];
@@ -12,6 +10,7 @@ struct edge
 vector<edge> v[N];
 void prim(ll n)
 {
+	// https://github.com/bekzhan29/algos
 	priority_queue<pair<ll, ll>> s;
 	for (ll i = 1; i <= n; i++)
 		dist[i] = INF, w[i] = 0;
