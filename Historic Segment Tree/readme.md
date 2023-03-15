@@ -1,0 +1,1 @@
+Historic segment tree $O(NlogN)$
