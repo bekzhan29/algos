@@ -1,11 +1,7 @@
-/*
-Персистентное дерево отрезков
-- a[x] += y O(logN)
-- sum(l, r) в версии i O(logN)
-*/
 ll a[N], root[N], sz;
 struct node
 {
+	// https://github.com/bekzhan29/algos
 	ll sum, l, r;
 	node() : sum(0), l(0), r(0) {}
 } tree[N];

@@ -1,12 +1,8 @@
-/*
-Алгоритм Манакера O(N)
-d1 - палиндромы нечетной длины
-d2 - палиндромы четной длины
-*/
 ll n, d1[N], d2[N], l, r;
 string s;
-void build()
+void manacher()
 {
+	// https://github.com/bekzhan29/algos
 	n = s.size();
 	l = r = 0;
 	for (ll i = 1; i <= n; i++)

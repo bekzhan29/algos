@@ -1,8 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Теорема Лукаса O(P)
-*/
 ll f[N], rf[N];
 ll bin(ll a, ll n, ll p)
 {
@@ -33,6 +28,7 @@ ll c(ll n, ll k, ll p)
 }
 ll lucas(ll n, ll k, ll p)
 {
+	// https://github.com/bekzhan29/algos
     if (k < 0 || k > n)
         return 0;
     ll ans = 1;

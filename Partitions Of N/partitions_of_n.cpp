@@ -1,6 +1,3 @@
-/*
-Количество разбиений числа N на слагаемые O(NsqrtN)
-*/
 #include <bits/stdc++.h>
 #include <iostream>
 #include <iomanip>
@@ -28,6 +25,7 @@ const ll N = 100100;
 ll n, d[N];
 int main()
 {
+	// https://github.com/bekzhan29/algos
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);

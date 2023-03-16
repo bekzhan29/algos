@@ -1,10 +1,6 @@
-/*
-Li Chao Tree O(NlogN)
-- Добавить новую прямую O(logN)
-- Найти ответ O(logN)
-*/
 struct line
 {
+	// https://github.com/bekzhan29/algos
 	ll k, b;
 } t[4 * N];
 void build(ll v, ll l, ll r)

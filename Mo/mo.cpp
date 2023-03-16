@@ -1,8 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Task: https://atcoder.jp/contests/abc293/tasks/abc293_g
-*/
 #include <bits/stdc++.h>
 using namespace std;
 #define fi first
@@ -14,6 +9,7 @@ ll n, m, a[N], l, r, k, cnt[N], ans[N], res, tl, tr, pos;
 vector<pair<pll, ll>> v[N];
 void mo()
 {
+	// https://github.com/bekzhan29/algos
 	for (ll i = 0; i <= n / k; i++)
 	{
 		for (ll j = 0; j < N; j++)
