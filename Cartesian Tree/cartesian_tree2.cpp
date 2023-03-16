@@ -1,14 +1,10 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Декартово дерево по неявному ключу
-*/
 struct item
 {
+	// https://github.com/bekzhan29/algos
 	ll x, y, val;
-	Node *l, *r;
+	item *l, *r;
 	item() {}
-	item(ll x, ll y, Node *l = NULL, Node *r = NULL) : x(x), y(y), l(l), r(r) {}
+	item(ll x, ll y, item *l = NULL, item *r = NULL) : x(x), y(y), l(l), r(r) {}
 };
 typedef item *pitem;
 void upd(pitem &t)

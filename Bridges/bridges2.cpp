@@ -1,7 +1,3 @@
-/*
-Поиск мостов в связном графе O(N+M)
-Граф может содержать кратные рёбра
-*/
 struct edge
 {
 	ll x, y, ind;
@@ -11,6 +7,7 @@ ll cnt, w[N], dep[N], up[N];
 vector<edge> v[N];
 void dfs(ll x, ll last, ll depth)
 {
+	// https://github.com/bekzhan29/algos
 	dep[x] = up[x] = depth;
 	w[x] = 1;
 	for (edge e : v[x])

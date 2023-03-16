@@ -1,8 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Centroid Decomposition
-*/
 ll used[N], cnt[N];
 vector<ll> v[N], pr[N];
 void dfs(ll x, ll par)
@@ -28,6 +23,7 @@ void dfs1(ll root, ll x, ll par)
 }
 void cen(ll x)
 {
+	// https://github.com/bekzhan29/algos
 	dfs(x, 0);
 	ll sz = cnt[x];
 	for (ll ch = 1; ch;)

@@ -1,10 +1,3 @@
-/*
-Китайская теорема об остатках O(N)
-Найти такое x, что x%k[i]=re[i] для всех 1<=i<=sz
-Все k[i] взаимнопросты
-m=k[1]*k[2]*...*k[sz]
-0<=x<m
-*/
 ll sz, k[N], mi[N], rmi[N], re[N];
 ll bin(ll a, ll n, ll m)
 {
@@ -34,6 +27,7 @@ ll phi(ll n)
 }
 ll CRM()
 {
+	// https://github.com/bekzhan29/algos
 	ll m = 1, ans = 0;
 	for (ll i = 1; i <= sz; i++)
 		m *= k[i];
