@@ -1,11 +1,7 @@
-/*
-Sqrt Decomposition
-- upd(l,r)+=k O(sqrt(N))
-- sum(l,r) O(sqrt(N))
-*/
 template <typename Type>
 struct sqrt_dec
 {
+	// https://github.com/bekzhan29/algos
 	int len;
 	vector<Type> a, bl, zl;
 	void build(int n, Type *ar)

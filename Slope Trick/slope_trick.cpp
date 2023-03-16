@@ -1,8 +1,3 @@
-/*
-Slope trick O(NlogN)
-Задача - https://codeforces.com/contest/713/problem/C
-Пост - https://codeforces.com/blog/entry/77298
-*/
 #include <bits/stdc++.h>
 using namespace std;
 #define pb push_back
@@ -23,6 +18,7 @@ ll n, x, ans;
 priority_queue<ll> q;
 int main()
 {
+	// https://github.com/bekzhan29/algos
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 

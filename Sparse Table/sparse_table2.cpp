@@ -1,8 +1,3 @@
-/*
-Sparse Table
-- build O(NlogN)
-- sum(l,r) O(1)
-*/
 ll n1, lg2[2 * N], sp[20][2 * N];
 void build()
 {
@@ -28,6 +23,7 @@ void build()
 }
 ll sum(ll l, ll r)
 {
+	// https://github.com/bekzhan29/algos
 	ll k = lg2[r ^ l] + 1;
 	if (l == r)
 		return sp[0][l];

@@ -1,10 +1,8 @@
-/*
-Изоморфизм деревьев O(NlogN)
-*/
 int k;
 map<vector<int>, int> id;
 struct tree
 {
+	// https://github.com/bekzhan29/algos
     int n, root;
     vector<vector<int>> v;
     tree(int n, int root = 1)

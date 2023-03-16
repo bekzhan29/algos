@@ -1,9 +1,6 @@
-/*
-Z function
-- Complexity: O(|s|)
-*/
 vector<int> z_function(string s)
 {
+	// https://github.com/bekzhan29/algos
 	int n = s.size();
 	vector<int> z(n);
 	for (int i = 1, l = 0, r = 0; i < n; i++)

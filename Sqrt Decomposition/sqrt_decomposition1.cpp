@@ -1,11 +1,7 @@
-/*
-Sqrt Decomposition
-- a[x] += y O(1)
-- sum(l,r) O(sqrt(N))
-*/
 template <typename Type>
 struct sqrt_dec
 {
+	// https://github.com/bekzhan29/algos
 	int len;
 	vector<Type> a, bl;
 	void build(int n, Type *ar)
