@@ -1,11 +1,8 @@
-/*
-Поиск точек сочленения в связном графе O(N+M)
-Граф может содержать кратные рёбра
-*/
 ll cnt, w[N], dep[N], up[N], cut[N];
 vector<ll> v[N];
 void dfs(ll x, ll pr, ll depth)
 {
+	// https://github.com/bekzhan29/algos
 	dep[x] = up[x] = depth;
 	w[x] = 1;
 	ll ch = 0, go = 0;

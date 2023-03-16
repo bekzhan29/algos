@@ -16,8 +16,9 @@ ll cross(point o, point a, point b)
 {
 	return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
 }
-vector<point> convexHull(ll n, point a[])
+vector<point> convex_hull(ll n, point a[])
 {
+	// https://github.com/bekzhan29/algos
 	vector<point> ans;
 	sort(a + 1, a + n + 1);
 	ll sz = 0;

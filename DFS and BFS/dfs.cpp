@@ -1,9 +1,6 @@
-/*
-Depth First Search
-0 indexed graph
-*/
 struct graph
 {
+	// https://github.com/bekzhan29/algos
 	int n;
 	vector<vector<int>> g;
 	vector<bool> used;

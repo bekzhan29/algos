@@ -1,9 +1,6 @@
-/*
-Breadth First Search
-0 based graph
-*/
 struct graph
 {
+	// https://github.com/bekzhan29/algos
 	int n;
 	vector<vector<int>> g;
 	vector<bool> used;
