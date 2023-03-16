@@ -6,7 +6,7 @@
 1. $a[x]$ += $y$ $O(1)$
 2. $sum(l,r)$ $O(\sqrt{N})$
 </details>
-<details open>
+<details>
 <summary><code>sqrt_decomposition2.cpp</code></summary>
 
 1. $upd(l,r)$ += $k$ $O(\sqrt{N})$
