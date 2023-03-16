@@ -1,8 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Быстрый алгоритм Куна
-*/
 ll mu[N], go[N], w[N];
 vector<ll> v[N];
 ll try_kuhn(ll x)
@@ -28,6 +23,7 @@ ll try_kuhn(ll x)
 }
 void kuhn()
 {
+	// https://github.com/bekzhan29/algos
 	ll ans = 0;
 	for (ll i = 1; i <= n; i++)
 		mu[i] = go[i] = 0;

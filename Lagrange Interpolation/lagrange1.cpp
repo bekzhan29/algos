@@ -1,9 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Lagrange Interpolation O(N^2logN)
-1^k+2^k+...+x^k
-*/
 #include <bits/stdc++.h>
 #include <iostream>
 #include <iomanip>
@@ -47,6 +41,7 @@ ll bin(ll a, ll n)
 }
 ll f(ll x)
 {
+	// https://github.com/bekzhan29/algos
 	ll ans = 0;
 	for (ll i = 1; i <= x; i++)
 		ans += bin(i, k), ans %= mod;

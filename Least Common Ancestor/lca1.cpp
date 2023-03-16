@@ -1,12 +1,9 @@
-/*
-Наименьший общий предок
-Поиск двоичным подьемом O(logN)
-*/
 const ll lg = 17;
 ll pr[lg][N], tin[N], tout[N], tim;
 vector<ll> v[N];
 void dfs(ll x, ll par)
 {
+	// https://github.com/bekzhan29/algos
 	tin[x] = ++tim;
 	pr[0][x] = par;
 	if (par == 0)

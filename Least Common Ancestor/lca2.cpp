@@ -1,12 +1,9 @@
-/*
-Наименьший общий предок
-Поиск деревом отрезков O(logN)
-*/
 ll sz, pos[N], ord[2 * N], dep[2 * N];
 pll tree[8 * N];
 vector<ll> v[N];
 void dfs(ll x, ll par, ll depth)
 {
+	// https://github.com/bekzhan29/algos
 	ord[++sz] = x;
 	dep[sz] = depth;
 	pos[x] = sz;
