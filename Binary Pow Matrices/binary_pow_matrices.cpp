@@ -1,10 +1,6 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Бинарное возведение матрицы A размера NxN в степень K O(N^3*logK)
-*/
 struct matrix
 {
+	// https://github.com/bekzhan29/algos
 	ll n, m, p;
 	vector<vector<ll>> a;
 	void resize(ll n, ll m, ll p)

@@ -1,12 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Биномиальная пирамида
-- объединить 2 пирамиды O(logN)
-- найти минимум O(logN)
-- добавить элемент O(logN)
-- удалить минимум O(logN)
-*/
 ll head[N], val[N], sib[N], son[N], par[N], cnt[N], sz;
 void print(ll head)
 {
@@ -19,6 +10,7 @@ void print(ll head)
 }
 ll uni(ll x, ll y)
 {
+	// https://github.com/bekzhan29/algos
 	if (val[x] < val[y])
 		swap(x, y);
 	par[x] = y;

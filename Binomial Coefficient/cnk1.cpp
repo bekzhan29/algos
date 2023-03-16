@@ -1,10 +1,6 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Биномиальные коэффициенты O(N^2)
-*/
 struct cnk
 {
+	// https://github.com/bekzhan29/algos
 private:
 	int n;
 	vector<vector<int>> a;

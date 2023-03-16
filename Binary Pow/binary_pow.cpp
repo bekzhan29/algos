@@ -1,8 +1,6 @@
-/*
-https://github.com/bekzhan29/algos/
-*/
 int bin_pow(int a, int n, int m)
 {
+	// https://github.com/bekzhan29/algos
 	int ans = 1;
 	while (n)
 	{

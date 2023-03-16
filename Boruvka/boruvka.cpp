@@ -1,10 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Алгоритм Борувки O(MlogN)
-e[N] - ребра
-mst[N] - ребра в минимальном оставном дереве
-*/
 ll n, m, p[N], r[N], msz;
 pair<ll, ll> minn[N];
 struct edge
@@ -36,6 +29,7 @@ bool uni(ll a, ll b)
 }
 void boruvka(ll n, ll m)
 {
+	// https://github.com/bekzhan29/algos
 	init_dsu(n);
 	msz = 0;
 	ll n_cmp = n;

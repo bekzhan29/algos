@@ -1,12 +1,9 @@
-/*
-Поиск мостов в связном графе O(N+M)
-Граф не содержит кратных рёбер
-*/
 ll cnt, w[N], dep[N], up[N];
 pair<ll, ll> br[N];
 vector<ll> v[N];
 void dfs(ll x, ll pr, ll depth)
 {
+	// https://github.com/bekzhan29/algos
 	dep[x] = up[x] = depth;
 	w[x] = 1;
 	for (ll to : v[x])
