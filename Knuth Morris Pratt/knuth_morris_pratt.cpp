@@ -1,10 +1,8 @@
-/*
-Алгоритм Кнута-Морриса-Пратта O(N)
-*/
 ll n, p[N];
 string s;
 void build()
 {
+	// https://github.com/bekzhan29/algos
 	n = s.size();
 	for (ll i = 1; i < n; i++)
 	{

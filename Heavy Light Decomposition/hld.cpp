@@ -1,12 +1,8 @@
-/*
-Heavy-Light Decomposition
-- a[x] += y O(logN)
-- max(x,y) O(log^2(N))
-*/
 ll pr[17][N], tin[N], tout[N], tim, tree[3 * N], a[N], pos[N], head[N], ind[N], l[N], r[N], c[N], cnt, sz;
 vector<ll> v[N];
 void dfs(ll x, ll par)
 {
+	// https://github.com/bekzhan29/algos
 	tin[x] = ++tim;
 	pr[0][x] = par;
 	c[x] = 1;

@@ -1,8 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Алгоритм Крускала O(MlogM)
-*/
 ll p[N], r[N], msz;
 struct edge
 {
@@ -37,6 +32,7 @@ bool uni(ll a, ll b)
 }
 void kruskal(ll n, ll m)
 {
+	// https://github.com/bekzhan29/algos
 	init_dsu(n);
 	msz = 0;
 	sort(e + 1, e + m + 1, &cmp);

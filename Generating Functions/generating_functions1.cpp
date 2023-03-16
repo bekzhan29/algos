@@ -1,6 +1,3 @@
-/*
-Task: https://atcoder.jp/contests/abc285/tasks/abc285_h
-*/
 #include <bits/stdc++.h>
 using namespace std;
 #define pb push_back
@@ -41,6 +38,7 @@ ll c(ll n, ll k)
 }
 int main()
 {
+	// https://github.com/bekzhan29/algos
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 

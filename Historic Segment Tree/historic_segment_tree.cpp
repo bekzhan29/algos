@@ -1,14 +1,3 @@
-/*
-Historic segment tree
-1. a[i]+=x на отрезке l,r
-2. a[i]=max(a[i]-x,0) на отрезке l,r
-3. a[i]=x на отрезке l,r
-4. вывести a[i]
-5. вывести b[i]
-b[i] = максимальное значение a[i] за все время
-Задача - https://uoj.ac/problem/164
-Пост - https://codeforces.com/blog/entry/57319
-*/
 #include <bits/stdc++.h>
 #include <iostream>
 #include <iomanip>
@@ -37,6 +26,7 @@ const ll N = 500100;
 ll n, m, a[N], ty, l, r, x;
 struct item
 {
+	// https://github.com/bekzhan29/algos
 	ll x, y, xb, yb;
 } t[4 * N];
 item merge(item a, item b)
