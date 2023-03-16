@@ -1,8 +1,3 @@
-/*
-Дерево отрезков сверху вниз
-- upd(l, r) += k
-- sum(l, r)
-*/
 template <typename Type>
 struct segment_tree
 {

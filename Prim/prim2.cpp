@@ -1,8 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Алгоритм Прима O(M+N^2)
-*/
 ll dist[N], w[N], pr[N];
 struct edge
 {
@@ -12,6 +7,7 @@ struct edge
 vector<edge> v[N];
 void prim(ll n)
 {
+	// https://github.com/bekzhan29/algos
 	for (ll i = 1; i <= n; i++)
 		dist[i] = INF, w[i] = 0;
 	dist[1] = pr[1] = 0;

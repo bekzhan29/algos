@@ -1,8 +1,3 @@
-/*
-Дерево отрезков сверху вниз
-- a[x] += y
-- sum(l, r)
-*/
 template <typename Type>
 struct segment_tree
 {

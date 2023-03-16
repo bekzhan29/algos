@@ -1,12 +1,7 @@
-/*
-Segment tree beats O(Nlog^2N)
-1. Вывести сумму на отрезке l,r
-2. Взять по модулю на отрезке l,r a[i]%=x
-3. Обновление a[i]=x
-*/
 ll a[N];
 struct item
 {
+	// https://github.com/bekzhan29/algos
 	ll sum, mx, mn, z;
 } t[4 * N];
 item merge(item a, item b)

@@ -1,6 +1,3 @@
-/*
-Алгоритм Прима O(MlogN)
-*/
 ll dist[N], w[N], pr[N];
 struct edge
 {
