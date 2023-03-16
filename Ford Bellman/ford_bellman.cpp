@@ -1,8 +1,3 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Алгоритм Форда-Беллмана O(NM)
-*/
 ll dist[N];
 struct edge
 {
@@ -11,6 +6,7 @@ struct edge
 } e[N];
 void ford_bellman(int st, int n, int m)
 {
+	// https://github.com/bekzhan29/algos
 	for (int i = 1; i <= n; i++)
 		dist[i] = INF;
 	dist[st] = 0;

@@ -1,13 +1,7 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Дерево Фенвика O(NlogN)
-- Сумма на отрезке O(logN)
-- a[x] += y O(logN)
-*/
 template <typename Type>
 struct fenwick
 {
+	// https://github.com/bekzhan29/algos
 private:
 	int n;
 	Type tree[N];

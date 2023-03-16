@@ -1,9 +1,7 @@
-/*
-Floyd-Warshall O(N^3)
-*/
 ll x[N * N], y[N * N], z[N * N], dist[N][N];
 void floydWarshall()
 {
+	// https://github.com/bekzhan29/algos
 	for (ll i = 1; i <= n; i++)
 		for (ll j = 1; j <= n; j++)
 			dist[i][j] = INF;

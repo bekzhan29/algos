@@ -1,13 +1,7 @@
-/*
-https://github.com/bekzhan29/algos/
-
-Дерево Фенвика O(NlogN)
-- Сумма на отрезке O(logN)
-- upd(l, r) += k O(logN)
-*/
 ll tree[2][N];
 void add2(ll ty, ll pos, ll x)
 {
+	// https://github.com/bekzhan29/algos
 	for (; pos <= n; pos = (pos | (pos + 1)))
 		tree[ty][pos] += x;
 }

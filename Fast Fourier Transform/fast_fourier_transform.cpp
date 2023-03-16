@@ -1,9 +1,7 @@
-/*
-Быстрое Преобразование Фурье
-*/
 double pi = acos(-1);
 struct complexx
 {
+	// https://github.com/bekzhan29/algos
 	double x, y;
 	complexx(double x = 0, double y = 0) : x(x), y(y) {}
 	complexx operator*(const complexx &a)

@@ -1,12 +1,7 @@
-/*
-Disjoint Set Union O(1)
-- init_dsu() O(N)
-- fin() O(1)
-- uni() O(1)
-*/
 ll p[N], r[N];
 ll fin(ll a)
 {
+	// https://github.com/bekzhan29/algos
 	if (a == p[a])
 		return a;
 	return p[a] = fin(p[a]);
