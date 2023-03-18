@@ -4,6 +4,17 @@ struct avl_tree
 	int n, h;
 	Type val;
 	avl_tree *l, *r;
+	avl_tree()
+	{
+		n = h = 0;
+		l = r = NULL;
+	}
+	avl_tree(Type key)
+	{
+		val = key;
+		n = h = 1;
+		l = r = NULL;
+	}
 	int size()
 	{
 		return n;
@@ -12,13 +23,14 @@ struct avl_tree
 	{
 		return n == 0;
 	}
-	void upd_height(avl tree *root)
+	void upd(avl_tree *root)
 	{
-		int l_height = 0, r_height = 0;
+		int l_height = 0, r_height = 0, lsz = 0, rsz = 0;
 		if (root->l)
-			l_height = root->l->h;
+			lsz = root->l->n, l_height = root->l->h;
 		if (root->r)
-			r_height = root->r->h;
+			rsz = root->r->n, r_height = root->r->h;
+		root->n = lsz + rsz + 1;
 		root->h = max(l_height, r_height) + 1;
 	}
 	avl_tree *rotate_r(avl_tree *root)
@@ -26,7 +38,7 @@ struct avl_tree
 		avl_tree *a = root->l, *b = root;
 		avl_tree *x = a->r;
 		a->r = b;
-		b->l = y;
+		b->l = x;
 		return a;
 	}
 	avl_tree *rotate_l(avl_tree *root)
@@ -34,7 +46,7 @@ struct avl_tree
 		avl_tree *a = root->r, *b = root;
 		avl_tree *x = a->l;
 		a->l = b;
-		b->r = y;
+		b->r = x;
 		return a;
 	}
 	avl_tree *big_rotate_r(avl_tree *root)
@@ -78,24 +90,37 @@ struct avl_tree
 				return big_rotate_r(root);
 		}
 	}
-	void insert(Type c)
+	void insert(Type key)
 	{
+		if (n == 0)
+		{
+			n++;
+			h++;
+			val = key;
+			return;
+		}
 		if (key < val)
 		{
 			if (!l)
-				l = &avl_tree(key);
+				l = new avl_tree(key);
 			else
 				l->insert(key);
 		}
-		else
+		else if (val < key)
 		{
 			if (!r)
-				r = &avl_tree(key);
+				r = new avl_tree(key);
 			else
 				r->insert(key);
 		}
-		upd_height(this);
-		balance(this);
+		upd(this);
+		// balance(this);
+	}
+	avl_tree *find_min(avl_tree *root)
+	{
+		if (!root->l)
+			return root;
+		return find_min(root->l);
 	}
 	avl_tree *erase(avl_tree *root, Type key)
 	{
@@ -113,12 +138,13 @@ struct avl_tree
 			root->r = erase(root->r, r_min->val);
 			root->val = r_min->val;
 		}
-		upd_height(root);
+		upd(root);
 		root = balance(root);
 		return root;
 	}
-	void erase(Type key)
+	Type begin()
 	{
-		this = erase(this, key);
+		assert(n > 0);
+		return find_min(this)->val;
 	}
 };
