@@ -1,29 +1,22 @@
 template <typename Type>
-struct avl_tree
+struct node
 {
 	int n, h;
 	Type val;
-	avl_tree *l, *r;
-	avl_tree()
+	node *l, *r;
+	node(Type key)
 	{
-		n = h = 0;
-		l = r = NULL;
-	}
-	avl_tree(Type key)
-	{
-		val = key;
 		n = h = 1;
+		val = key;
 		l = r = NULL;
 	}
-	int size()
-	{
-		return n;
-	}
-	bool empty()
-	{
-		return n == 0;
-	}
-	void upd(avl_tree *root)
+};
+template <typename Type>
+struct avl_tree
+{
+private:
+	node<Type> *root;
+	void upd(node<Type> *root)
 	{
 		int l_height = 0, r_height = 0, lsz = 0, rsz = 0;
 		if (root->l)
@@ -33,35 +26,39 @@ struct avl_tree
 		root->n = lsz + rsz + 1;
 		root->h = max(l_height, r_height) + 1;
 	}
-	avl_tree *rotate_r(avl_tree *root)
+	node<Type> *rotate_r(node<Type> *root)
 	{
-		avl_tree *a = root->l, *b = root;
-		avl_tree *x = a->r;
+		node<Type> *a = root->l, *b = root;
+		node<Type> *x = a->r;
 		a->r = b;
 		b->l = x;
+		upd(b);
+		upd(a);
 		return a;
 	}
-	avl_tree *rotate_l(avl_tree *root)
+	node<Type> *rotate_l(node<Type> *root)
 	{
-		avl_tree *a = root->r, *b = root;
-		avl_tree *x = a->l;
+		node<Type> *a = root->r, *b = root;
+		node<Type> *x = a->l;
 		a->l = b;
 		b->r = x;
+		upd(b);
+		upd(a);
 		return a;
 	}
-	avl_tree *big_rotate_r(avl_tree *root)
+	node<Type> *big_rotate_r(node<Type> *root)
 	{
 		root->l = rotate_l(root->l);
 		return rotate_r(root);
 	}
-	avl_tree *big_rotate_l(avl_tree *root)
+	node<Type> *big_rotate_l(node<Type> *root)
 	{
 		root->r = rotate_r(root->r);
 		return rotate_l(root);
 	}
-	avl_tree *balance(avl_tree *root)
+	node<Type> *balance(node<Type> *root)
 	{
-		
+
 		int l_height = 0, r_height = 0;
 		if (root->l)
 			l_height = root->l->h;
@@ -84,45 +81,44 @@ struct avl_tree
 			int rrh = 0;
 			if (root->r->r)
 				rrh = root->r->r->h;
-			if(rrh == root->h - 2)
+			if (rrh == root->h - 2)
 				return rotate_l(root);
 			else
-				return big_rotate_r(root);
+				return big_rotate_l(root);
 		}
 	}
-	void insert(Type key)
+	node<Type> *insert(node<Type> *root, Type key)
 	{
-		if (n == 0)
+		if (root == NULL)
 		{
-			n++;
-			h++;
-			val = key;
-			return;
+			root = new node<Type>(key);
+			return root;
 		}
-		if (key < val)
+		if (key < root->val)
 		{
-			if (!l)
-				l = new avl_tree(key);
+			if (!root->l)
+				root->l = new node<Type>(key);
 			else
-				l->insert(key);
+				root->l = insert(root->l, key);
 		}
-		else if (val < key)
+		else if (root->val < key)
 		{
-			if (!r)
-				r = new avl_tree(key);
+			if (!root->r)
+				root->r = new node<Type>(key);
 			else
-				r->insert(key);
+				root->r = insert(root->r, key);
 		}
-		upd(this);
-		// balance(this);
+		upd(root);
+		root = balance(root);
+		return root;
 	}
-	avl_tree *find_min(avl_tree *root)
+	node<Type> *find_min(node<Type> *root)
 	{
 		if (!root->l)
 			return root;
 		return find_min(root->l);
 	}
-	avl_tree *erase(avl_tree *root, Type key)
+	node<Type> *erase(node<Type> *root, Type key)
 	{
 		if (root == NULL)
 			return NULL;
@@ -134,7 +130,7 @@ struct avl_tree
 		{
 			if (!root->l || !root->r)
 				return (root->l ? root->l : root->r);
-			avl_tree *r_min = find_min(root->r);
+			node<Type> *r_min = find_min(root->r);
 			root->r = erase(root->r, r_min->val);
 			root->val = r_min->val;
 		}
@@ -142,9 +138,39 @@ struct avl_tree
 		root = balance(root);
 		return root;
 	}
+
+public:
+	avl_tree()
+	{
+		root = NULL;
+	}
+	int height()
+	{
+		if (!root)
+			return 0;
+		return root->h;
+	}
+	int size()
+	{
+		if (!root)
+			return 0;
+		return root->n;
+	}
+	bool empty()
+	{
+		return root == NULL;
+	}
 	Type begin()
 	{
-		assert(n > 0);
-		return find_min(this)->val;
+		assert(root != NULL);
+		return find_min(root)->val;
+	}
+	void insert(Type key)
+	{
+		root = insert(root, key);
+	}
+	void erase(Type key)
+	{
+		root = erase(root, key);
 	}
 };
