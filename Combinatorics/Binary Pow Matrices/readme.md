@@ -4,6 +4,8 @@
 
 [Задачи](https://codeforces.com/gym/102644)
 
+[AtCoder Beginner Contest 293 E](https://atcoder.jp/contests/abc293/tasks/abc293_e)
+
 <br/>
 
 Raises matrix $A$ of size $N*N$ to the power of $K$ in $O(N^3logK)$ time.
