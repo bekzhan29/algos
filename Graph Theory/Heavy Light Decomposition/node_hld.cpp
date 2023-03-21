@@ -122,6 +122,11 @@ struct hld
 		ans = max(ans, tree_max(1, 1, n, pos[x], pos[y]));
 		return ans;
 	}
+	void add_edge(int x, int y)
+	{
+		v[x].push_back(y);
+		v[y].push_back(x);
+	}
 	int find_max(int x, int y)
 	{
 		int lca = find_lca(x, y);
