@@ -136,10 +136,8 @@ public:
 		hld_build(1, 0);
 		tree_build(1, 1, n, a);
 	}
-	void upd(int x, int y, Type k)
+	void upd(int x, Type k)
 	{
-		if (tin[x] < tin[y])
-			swap(x, y);
 		tree_upd(1, 1, n, pos[x], k);
 	}
 	Type find_max(int x, int y)
