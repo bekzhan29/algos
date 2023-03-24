@@ -9,14 +9,14 @@ private:
 public:
 	void build(int n, Type *a)
 	{
-		tree.resize(4 * n);
+		tree.resize(n + n1 + 2);
 		n1 = 1;
 		while (n1 < n)
 			n1 *= 2;
 		n1--;
 		for (int i = 1; i <= n; i++)
 			tree[i + n1] = a[i];
-		for (int i = n1; i >= 1; i--)
+		for (int i = (n1 + n) / 2; i >= 1; i--)
 			tree[i] = tree[i * 2] + tree[i * 2 + 1];
 	}
 	void upd(int pos, Type k)
