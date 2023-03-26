@@ -2,7 +2,7 @@ Heavy-Light Decomposition
 1. $a[x]$ = $y$ $O(logN)$.
 2. $max(u,v)$ $O(log^2(N))$.
 
-<details open>
+<details>
 <summary>Пример использования <code>node_hld.cpp</code></summary>
 
 ```
