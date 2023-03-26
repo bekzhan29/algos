@@ -140,7 +140,7 @@ public:
 	{
 		tree_upd(1, 1, n, pos[x], k);
 	}
-	Type find_max(int x, int y)
+	Type get_max(int x, int y)
 	{
 		int lca = find_lca(x, y);
 		return max(hld_max(lca, x), hld_max(lca, y, false));
