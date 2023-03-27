@@ -13,6 +13,8 @@ struct max_flow
 		{
 			f[i].resize(n + 1);
 			c[i].resize(n + 1);
+			for (int j = 1; j <= n; j++)
+				f[i][j] = c[i][j] = 0;
 		}
 	}
 	int dfs(int x, int t, int flow)
@@ -23,11 +25,11 @@ struct max_flow
 		for (int to = 1; to <= n; to++)
 			if (!w[to] && c[x][to] - f[x][to] > 0)
 			{
-				flow = dfs(to, t, min(flow, c[x][to] - f[x][to]));
-				f[x][to] += flow;
-				f[to][x] -= flow;
-				if (flow)
-					return flow;
+				int delta = dfs(to, t, min(flow, c[x][to] - f[x][to]));
+				f[x][to] += delta;
+				f[to][x] -= delta;
+				if (delta)
+					return delta;
 			}
 		return 0;
 	}
@@ -37,12 +39,15 @@ struct max_flow
 		for (int i = 1; i <= n; i++)
 			for (int j = 1; j <= n; j++)
 				f[i][j] = 0;
-		for (int i = 1; i <= n; i++)
-			w[i] = 1;
-		dfs(s, t, INF);
-		for (int i = 1; i <= n; i++)
-			if (f[s][i] > 0)
-				ans += f[s][i];
+		for (;;)
+		{
+			for (int i = 1; i <= n; i++)
+				w[i] = 0;
+			int flow = dfs(s, t, INF);
+			ans += flow;
+			if (!flow)
+				break;
+		}
 		return ans;
 	}
 };
