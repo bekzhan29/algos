@@ -1,5 +1,6 @@
 struct max_flow
 {
+	// https://github.com/bekzhan29/algos
 	int n;
 	vector<vector<int>> f, c;
 	vector<int> w;
