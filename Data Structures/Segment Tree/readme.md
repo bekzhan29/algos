@@ -34,7 +34,7 @@ cout << t.sum(l, r);
 </details>
 
 <details>
-<summary>Пример использования <code>segment_tree1.cpp</code></summary>
+<summary>Пример использования <code>segment_tree3.cpp</code></summary>
 
 ```
 segment_tree<int> t;
