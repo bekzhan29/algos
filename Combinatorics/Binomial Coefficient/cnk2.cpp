@@ -10,6 +10,7 @@ int bin_pow(int a, int n, int m)
 	}
 	return ans;
 }
+template <typename Type>
 struct cnk
 {
 	// https://github.com/bekzhan29/algos
@@ -30,7 +31,7 @@ public:
 		for (int i = n - 1; i >= 0; i--)
 			rf[i] = 1LL * rf[i + 1] * (i + 1) % mod;
 	}
-	int c(int n, int k)
+	Type c(int n, int k)
 	{
 		if (k > n || k < 0 || n < 0)
 			return 0;

@@ -1,3 +1,4 @@
+template <typename Type>
 struct cnk
 {
 	// https://github.com/bekzhan29/algos
@@ -23,7 +24,7 @@ public:
 					a[i][j] -= mod;
 			}
 	}
-	int c(int n, int k)
+	Type c(int n, int k)
 	{
 		if (k > n || k < 0 || n < 0)
 			return 0;
