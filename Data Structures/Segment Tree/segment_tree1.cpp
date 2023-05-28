@@ -13,7 +13,7 @@ private:
 			return;
 		}
 		int mid = (vl + vr) / 2;
-		build_tree(v * 2, l, mid, a);
+		build_tree(v * 2, vl, mid, a);
 		build_tree(v * 2 + 1, mid + 1, vr, a);
 		tree[v] = tree[v * 2] + tree[v * 2 + 1];
 	}
