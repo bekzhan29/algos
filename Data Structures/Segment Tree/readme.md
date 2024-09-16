@@ -8,7 +8,7 @@
 <details>
 <summary>Пример использования <code>segment_tree1.cpp</code></summary>
 
-```
+```cpp
 segment_tree<int> t;
 // Построить дерево отрезков по массиву a длины n
 t.build(n, a);
@@ -22,7 +22,7 @@ cout << t.sum(l, r);
 <details>
 <summary>Пример использования <code>segment_tree2.cpp</code></summary>
 
-```
+```cpp
 segment_tree<int> t;
 // Построить дерево отрезков по массиву a длины n
 t.build(n, a);
@@ -36,7 +36,7 @@ cout << t.sum(l, r);
 <details>
 <summary>Пример использования <code>segment_tree3.cpp</code></summary>
 
-```
+```cpp
 segment_tree<int> t;
 // Построить дерево отрезков по массиву a длины n
 t.build(n, a);
