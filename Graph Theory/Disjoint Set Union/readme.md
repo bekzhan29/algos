@@ -17,6 +17,16 @@ int find_root(int a)
 1. Вершина $a$ является корнем, тогда возвращаем ответ.
 2. Иначе рекурсивно находим корень через предка вершины $a$.
 
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  
 Чтобы объединить 2 множества $a$ и $b$ нам надо найти корни их компонент. Далее у нас тоже 2 случая:  
 1. Они уже в одной компоненте, тогда нам не нужно ничего делать.
 2. Иначе мы можем сделать одну из вершин предком другой, тем самым объединив их компоненты.
