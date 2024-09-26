@@ -2,7 +2,7 @@
 
 Система непересекающихся множеств позволяет оъединять 2 множества и узнавать в каком множестве находится любая вершина.
 
-Изначально каждая вершина находится в отдельном множестве. У нас будет массив $$p$$, где $p[i]$ является предком вершины $i$. Корнем каждого множества будет вершина $i$ такая что $p[i]=i$, то есть у нее нет предка. Сначала все $p[i]=i$.
+Изначально каждая вершина находится в отдельном множестве. У нас будет массив $p$, где $p[i]$ является предком вершины $i$. Корнем каждого множества будет вершина $i$ такая что $p[i]=i$, то есть у нее нет предка. Сначала все $p[i]=i$.
 
 Чтобы найти в каком множестве находится вершина $i$ будем подниматься по предкам пока не найдем его. Это можно сделать следующим образом.
 ```cpp
@@ -17,16 +17,6 @@ int find_root(int a)
 1. Вершина $a$ является корнем, тогда возвращаем ответ.
 2. Иначе рекурсивно находим корень через предка вершины $a$.
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-        inlineMath: [['$','$']]
-      }
-    });
-  </script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  
 Чтобы объединить 2 множества $a$ и $b$ нам надо найти корни их компонент. Далее у нас тоже 2 случая:  
 1. Они уже в одной компоненте, тогда нам не нужно ничего делать.
 2. Иначе мы можем сделать одну из вершин предком другой, тем самым объединив их компоненты.
@@ -63,3 +53,13 @@ bool unionn(int a, int b)
 
 [Видео](https://www.youtube.com/watch?v=kHxaTXQfu9E&t=2060s) урок от [Um_nik](https://codeforces.com/profile/Um_nik)
 </details>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
