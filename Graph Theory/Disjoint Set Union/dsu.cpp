@@ -19,7 +19,7 @@ struct dsu
 			r[b] += r[a], p[a] = b;
 		return 1;
 	}
-	void init_dsu(int n)
+	void init(int n)
 	{
 		p.resize(n + 1);
 		r.resize(n + 1);
