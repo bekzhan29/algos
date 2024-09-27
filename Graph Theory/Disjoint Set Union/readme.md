@@ -85,3 +85,13 @@ bool unionn(int a, int b)
 
 [Видео](https://www.youtube.com/watch?v=kHxaTXQfu9E&t=2060s) урок от [Um_nik](https://codeforces.com/profile/Um_nik)
 </details>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
