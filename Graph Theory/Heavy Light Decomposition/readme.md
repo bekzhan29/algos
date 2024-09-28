@@ -5,7 +5,7 @@ Heavy-Light Decomposition
 <details>
 <summary>Пример использования <code>node_hld.cpp</code></summary>
 
-```
+```cpp
 hld<int> h;
 // Инициализировать для h все нужные массивы длины n
 h.init(n);
@@ -16,7 +16,7 @@ h.build(a);
 // Обновить вес вершины 1 на 5
 h.upd(1, 5);
 // Вывести максимальный вес вершины на пути от 1 до n
-cout << h.get_max(1, n);
+cout << h.get(1, n);
 ```
 </details>
 
