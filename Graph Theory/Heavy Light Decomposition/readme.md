@@ -20,5 +20,5 @@ cout << h.get(1, n);
 ```
 </details>
 
-[Задача 1](https://atcoder.jp/contests/abc294/tasks/abc294_g)
+[Задача 1](https://atcoder.jp/contests/abc294/tasks/abc294_g)  
 [Задача 2](https://acm.timus.ru/problem.aspx?space=1&num=1553)
