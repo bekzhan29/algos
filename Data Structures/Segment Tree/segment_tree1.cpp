@@ -9,7 +9,10 @@ private:
 	{
 		if (vl == vr)
 		{
-			tree[v] = a[vl];
+			if (a == NULL)
+				tree[v] = 0;
+			else
+				tree[v] = a[vl];
 			return;
 		}
 		int mid = (vl + vr) / 2;
@@ -31,18 +34,18 @@ private:
 			upd_tree(v * 2 + 1, mid + 1, vr, pos, k);
 		tree[v] = tree[v * 2] + tree[v * 2 + 1];
 	}
-	Type get_sum(int v, int vl, int vr, int l, int r)
+	Type get_tree(int v, int vl, int vr, int l, int r)
 	{
 		if (l > r || l > vr || r < vl)
 			return 0;
 		if (l <= vl && vr <= r)
 			return tree[v];
 		int mid = (vl + vr) / 2;
-		return get_sum(v * 2, vl, mid, l, r) + get_sum(v * 2 + 1, mid + 1, vr, l, r);
+		return get_tree(v * 2, vl, mid, l, r) + get_tree(v * 2 + 1, mid + 1, vr, l, r);
 	}
 
 public:
-	void build(int len, Type *a)
+	void build(int len, Type *a=NULL)
 	{
 		n = len;
 		tree.resize(4 * n);
@@ -52,8 +55,8 @@ public:
 	{
 		upd_tree(1, 1, n, pos, k);
 	}
-	Type sum(int l, int r)
+	Type get(int l, int r)
 	{
-		return get_sum(1, 1, n, l, r);
+		return get_tree(1, 1, n, l, r);
 	}
 };
