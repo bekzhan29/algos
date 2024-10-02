@@ -1,6 +1,6 @@
-struct suffixArray {
-    suffixArray (string str)
-      : originalStr(str) {
+struct suffix_array {
+    suffix_array (string str)
+      : original_str(str) {
         str += '#';
         int length = str.size();
 
@@ -8,43 +8,45 @@ struct suffixArray {
             suffs.push_back(i);
         sort(begin(suffs), end(suffs), [&](int lhs, int rhs){ return str[lhs] < str[rhs]; });
         
-        vector<int> cmpValues(length);
-        int maxValue = 0;
+        vector<int> cmp_values(length);
+        int max_value = 0;
         for (int i = 1; i < length; i++) {
             if (str[suffs[i]] != str[suffs[i - 1]])
-                maxValue++;
-            cmpValues[suffs[i]] = maxValue;
+                max_value++;
+            cmp_values[suffs[i]] = max_value;
         }
 
-        auto getValuePair = [&](int idx, int shift) -> pair<int, int> {
-            return {cmpValues[idx], cmpValues[(idx + shift) % length]};
+        auto get_value_pair = [&](int idx, int shift) -> pair<int, int> {
+            return {cmp_values[idx], cmp_values[(idx + shift) % length]};
         };
         for (int cmp_len = 1; cmp_len < length; cmp_len *= 2) {
-            vector<int> counter(maxValue + 1);
-            for (int value: cmpValues)
+            vector<int> counter(max_value + 1);
+            for (int value: cmp_values)
                 counter[value]++;
-            for (int i = 1; i <= maxValue; i++)
+            for (int i = 1; i <= max_value; i++)
                 counter[i] += counter[i - 1];
-            vector<int> newSuffs(length);
+            vector<int> new_suffs(length);
             for (int i = length - 1; i >= 0; i--) {
                 int prev = (suffs[i] - cmp_len + length) % length;
-                int prevValue = cmpValues[prev];
-                newSuffs[--counter[prevValue]] = prev;
+                int prev_value = cmp_values[prev];
+                new_suffs[--counter[prev_value]] = prev;
             }
-            suffs.swap(newSuffs);
-            vector<int> newValues(length);
-            maxValue = 0;
+            suffs.swap(new_suffs);
+            vector<int> new_values(length);
+            max_value = 0;
             for (int i = 1; i < length; i++) {
-                if (getValuePair(suffs[i - 1], cmp_len) != getValuePair(suffs[i], cmp_len))
-                    maxValue++;
-                newValues[suffs[i]] = maxValue;
+                pair<int, int> prev_value = get_value_pair(suffs[i - 1], cmp_len);
+                pair<int, int> curr_value = get_value_pair(suffs[i], cmp_len);
+                if (prev_value != curr_value)
+                    max_value++;
+                new_values[suffs[i]] = max_value;
             }
-            cmpValues.swap(newValues);
+            cmp_values.swap(new_values);
         }
-        // erase '#' symbol from suffs
+        // erase '#' symbol from sorted suffix array
         suffs.erase(suffs.begin());
     }
 
-    string originalStr;
+    string original_str;
     vector<int> suffs;
 };
