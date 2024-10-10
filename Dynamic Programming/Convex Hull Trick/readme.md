@@ -55,3 +55,12 @@ cout << st[r].get(x) << "\n";
 
 Задачи:
 1. [Land acquisition](https://vjudge.net/problem/SPOJ-ACQUIRE)
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
