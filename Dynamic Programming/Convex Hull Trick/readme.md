@@ -52,7 +52,7 @@ cout << st[r].get(x) << "\n";
 
 Видео:
 1. [Лекция от Станкевича](https://www.youtube.com/watch?v=ou0phsO_cLo)
-
+  
 Задачи:
 1. [Land acquisition](https://vjudge.net/problem/SPOJ-ACQUIRE)
 
