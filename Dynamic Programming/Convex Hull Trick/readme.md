@@ -50,5 +50,8 @@ cout << st[r].get(x) << "\n";
 
 В итоге методом амортизационного анализа получаем что запросы первого и второго типа работают за $O(1)$.
 
+Видео:
+1. [Лекция от Станкевича](https://www.youtube.com/watch?v=ou0phsO_cLo)
+
 Задачи:
 1. [Land acquisition](https://vjudge.net/problem/SPOJ-ACQUIRE)
