@@ -52,6 +52,8 @@ cout << st[r].get(x) << "\n";
 
 Видео:
 1. [Лекция от Станкевича](https://www.youtube.com/watch?v=ou0phsO_cLo)
-
+  
 Задачи:
 1. [Land acquisition](https://vjudge.net/problem/SPOJ-ACQUIRE)
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], inlineMath: [['$','$']] } }); </script> <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
